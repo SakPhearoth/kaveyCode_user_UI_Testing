@@ -1,0 +1,583 @@
+"use client"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { MobileNav } from "@/components/mobile-nav";
+import { PlayCircle, Code, BookOpen, Users, Star, Clock } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+export default function HomePage() {
+  const featuredCourses = [
+    {
+      id: 1,
+      title: "Complete HTML & CSS Fundamentals",
+      description:
+        "Learn the building blocks of web development with hands-on projects and real-world examples.",
+      tags: ["HTML", "CSS", "Beginner"],
+      image: "/html-css-coding-tutorial.jpg",
+      duration: "8 hours",
+      students: "2.5k",
+      rating: 4.9,
+    },
+    {
+      id: 2,
+      title: "JavaScript Mastery Course",
+      description:
+        "Master JavaScript from basics to advanced concepts including ES6+, DOM manipulation, and async programming.",
+      tags: ["JavaScript", "ES6", "Intermediate"],
+      image: "/javascript-programming-code.jpg",
+      duration: "12 hours",
+      students: "1.8k",
+      rating: 4.8,
+    },
+    {
+      id: 3,
+      title: "Python Programming Bootcamp",
+      description:
+        "Complete Python course covering syntax, data structures, OOP, and popular libraries like NumPy and Pandas.",
+      tags: ["Python", "Data Science", "Beginner"],
+      image: "/python-programming-snake-code.jpg",
+      duration: "15 hours",
+      students: "3.2k",
+      rating: 4.9,
+    },
+    {
+      id: 4,
+      title: "Java Development Essentials",
+      description:
+        "Learn Java programming with object-oriented principles, data structures, and application development.",
+      tags: ["Java", "OOP", "Intermediate"],
+      image: "/java-programming-coffee-cup-code.jpg",
+      duration: "18 hours",
+      students: "1.5k",
+      rating: 4.7,
+    },
+    {
+      id: 5,
+      title: "C++ Programming Fundamentals",
+      description:
+        "Master C++ programming with memory management, pointers, and system-level programming concepts.",
+      tags: ["C++", "Systems", "Advanced"],
+      image: "/c---programming-code-syntax.jpg",
+      duration: "20 hours",
+      students: "900",
+      rating: 4.8,
+    },
+    {
+      id: 6,
+      title: "Web Development Full Stack",
+      description:
+        "Complete full-stack development course combining frontend and backend technologies.",
+      tags: ["Full Stack", "React", "Node.js"],
+      image: "/full-stack-web-development.png",
+      duration: "25 hours",
+      students: "2.1k",
+      rating: 4.9,
+    },
+  ];
+
+  const featuredVideos = [
+    {
+      id: 1,
+      title: "HTML in 30 Minutes - Complete Beginner Tutorial",
+      description: "Quick start guide to HTML with practical examples",
+      thumbnail: "/html-tutorial-video-thumbnail.jpg",
+      duration: "30:45",
+      views: "125k",
+    },
+    {
+      id: 2,
+      title: "CSS Flexbox Explained - Visual Guide",
+      description: "Master CSS Flexbox with visual examples and real projects",
+      thumbnail: "/css-flexbox-tutorial-video.jpg",
+      duration: "45:20",
+      views: "89k",
+    },
+    {
+      id: 3,
+      title: "JavaScript Functions Deep Dive",
+      description: "Everything you need to know about JavaScript functions",
+      thumbnail: "/javascript-functions-tutorial.jpg",
+      duration: "52:15",
+      views: "156k",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-2">
+              <Link href="/" className="flex items-center space-x-2">
+                <Image
+                  src="/kavey-code-logo.png"
+                  alt="Kavey Code Logo"
+                  width={80}
+                  height={80}
+                  className="rounded"
+                />
+                <span className="text-xl font-bold text-foreground">
+                  កវី <span className="text-primary">កូដ</span>
+                </span>
+              </Link>
+            </div>
+
+            <div className="hidden md:flex items-center space-x-8">
+              <Link
+                href="/"
+                className="relative inline-flex items-center text-foreground font-medium transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 active:scale-95"
+              >
+                Home
+                <span className="absolute left-0 -bottom-1 h-0.5 bg-primary rounded-full w-0 group-hover:w-full group-active:w-full transition-all duration-300" />
+              </Link>
+
+              <Link
+                href="/courses"
+                className="relative inline-flex items-center text-muted-foreground transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 active:scale-95"
+              >
+                Courses
+                <span className="absolute left-0 -bottom-1 h-0.5 bg-primary rounded-full w-0 group-hover:w-full group-active:w-full transition-all duration-300" />
+              </Link>
+
+              <Link
+                href="/videos"
+                className="relative inline-flex items-center text-muted-foreground transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 active:scale-95"
+              >
+                Videos
+                <span className="absolute left-0 -bottom-1 h-0.5 bg-primary rounded-full w-0 group-hover:w-full group-active:w-full transition-all duration-300" />
+              </Link>
+
+              <Link
+                href="/about"
+                className="relative inline-flex items-center text-muted-foreground transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 active:scale-95"
+              >
+                About
+                <span className="absolute left-0 -bottom-1 h-0.5 bg-primary rounded-full w-0 group-hover:w-full group-active:w-full transition-all duration-300" />
+              </Link>
+            </div>
+
+            <label htmlFor="Search">
+              <div className="relative">
+                <input
+                  type="text"
+                  id="Search"
+                  className="mt-0.5 w-full rounded pe-10 shadow-sm sm:text-sm"
+                />
+
+                <span className="absolute inset-y-0 right-2 grid w-8 place-content-center">
+                  <button
+                    type="button"
+                    aria-label="Submit"
+                    className="rounded-full p-1.5 text-gray-700 transition-colors hover:bg-gray-100"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="size-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                      />
+                    </svg>
+                  </button>
+                </span>
+              </div>
+            </label>
+
+            <div className="hidden md:flex items-center space-x-3">
+              <ThemeToggle />
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground transform transition-transform duration-150 active:scale-95">
+                Get Started
+              </Button>
+            </div>
+
+            <MobileNav currentPage="/" />
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+             <section className="relative overflow-hidden py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left: copy */}
+            <div className="lg:col-span-6 text-center lg:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-4 leading-tight">
+                សូមស្វាគមន៍មកកាន់ <span className="text-primary">Kavey Code</span>
+              </h1>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                វគ្គសិក្សារបស់ Kavey Code ត្រូវបានរចនាឡើងដើម្បីអោយអ្នករៀន Coding បានយ៉ាងងាយស្រួល
+                និងឥតគិតថ្លៃ។ រៀនពី HTML, CSS, JavaScript និង Frameworks ដូចជា React និង Next.js
+                តាមជំហានៗ ជាមួយគំរូក៏ដូចជា Project ជាក់ស្តែង។
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/95 text-primary-foreground px-6 sm:px-8 py-3 text-base sm:text-lg transform transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                  aria-label="Start learning now"
+                >
+                  <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  ចាប់ផ្ដើមរៀនឥឡូវនេះ
+                </Button>
+
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
+                  aria-label="Watch intro video"
+                >
+                  <PlayCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  មើលវីដេអូណែនាំ
+                </Button>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start opacity-90">
+                <span className="text-xs text-muted-foreground">Popular:</span>
+                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">HTML</span>
+                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">CSS</span>
+                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">JavaScript</span>
+                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">React</span>
+              </div>
+            </div>
+
+            {/* Right: hero visuals */}
+            <div className="lg:col-span-6 flex items-center justify-center relative">
+              {/* animated gradient blob behind images */}
+              <div aria-hidden className="absolute -right-8 top-0 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-primary/15 via-primary/7 to-transparent blur-3xl animate-blob opacity-90 pointer-events-none" />
+
+              {/* main banner image */}
+              <div className="relative w-[360px] sm:w-[420px] lg:w-[480px]">
+                <div className="rounded-2xl overflow-hidden shadow-2xl transform-gpu transition-transform duration-500 hover:scale-102">
+                  <Image
+                    src="/banner.png"
+                    alt="Kavey Code banner"
+                    width={960}
+                    height={540}
+                    className="w-full h-auto object-cover block"
+                    priority
+                  />
+                </div>
+
+                {/* floating tech icons */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <img src="/icons-html.png" alt="" className="absolute w-12 h-12 top-4 left-2 shadow-md rounded-md animate-float-1" aria-hidden />
+                  <img src="/icons-css.png" alt="" className="absolute w-12 h-12 top-10 right-6 shadow-md rounded-md animate-float-2" aria-hidden />
+                  <img src="/icons-javascrip.png" alt="" className="absolute w-14 h-14 bottom-12 left-8 shadow-lg rounded-md animate-float-3" aria-hidden />
+                  <img src="/icons-react.png" alt="" className="absolute w-12 h-12 -bottom-6 right-12 shadow-md rounded-md animate-float-1" aria-hidden />
+                  <img src="/icons-next.js.png" alt="" className="absolute w-10 h-10 top-3 right-20 shadow-md rounded-md animate-float-2" aria-hidden />
+                  <img src="/icons-tailwind-css.png" alt="" className="absolute w-10 h-10 left-1/2 -translate-x-1/2 top-0 shadow-md rounded-md animate-float-3" aria-hidden />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* subtle bottom wave / divider */}
+        <svg className="absolute inset-x-0 bottom-0 w-full -mb-1" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden>
+          <path d="M0,40 C240,120 480,0 720,40 C960,80 1200,20 1440,60 L1440 120 L0 120 Z" fill="rgba(99,102,241,0.04)" />
+        </svg>
+      </section>
+
+      {/* Featured Courses Section */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Featured Courses
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Start your coding journey with our most popular and comprehensive
+              courses
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredCourses.map((course) => (
+              <Card
+                key={course.id}
+                className="group hover:shadow-lg transition-all duration-300 border-border bg-card"
+              >
+                <div className="relative overflow-hidden rounded-t-lg">
+                  <img
+                    src={course.image || "/placeholder.svg"}
+                    alt={course.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-foreground">
+                    {course.duration}
+                  </div>
+                </div>
+                <CardHeader>
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {course.tags.map((tag) => (
+                      <Badge
+                        key={tag}
+                        variant="secondary"
+                        className="bg-primary/10 text-primary hover:bg-primary/20"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                  <CardTitle className="text-xl text-card-foreground group-hover:text-primary transition-colors">
+                    {course.title}
+                  </CardTitle>
+                  <CardDescription className="text-muted-foreground">
+                    {course.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                    <div className="flex items-center">
+                      <Users className="h-4 w-4 mr-1" />
+                      {course.students} students
+                    </div>
+                    <div className="flex items-center">
+                      <Star className="h-4 w-4 mr-1 fill-yellow-400 text-yellow-400" />
+                      {course.rating}
+                    </div>
+                  </div>
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Start Course
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="w-full sm:w-auto bg-transparent"
+            >
+              <Link href="/courses">View All Courses</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Video Tutorials Section */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Featured Video Tutorials
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Quick and engaging video lessons to boost your coding skills
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredVideos.map((video) => (
+              <Card
+                key={video.id}
+                className="group hover:shadow-lg transition-all duration-300 border-border bg-card"
+              >
+                <div className="relative overflow-hidden rounded-t-lg">
+                  <img
+                    src={video.thumbnail || "/placeholder.svg"}
+                    alt={video.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-primary/90 rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
+                      <PlayCircle className="h-8 w-8 text-primary-foreground" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-4 right-4 bg-black/80 text-white px-2 py-1 rounded text-sm">
+                    {video.duration}
+                  </div>
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-lg text-card-foreground group-hover:text-primary transition-colors">
+                    {video.title}
+                  </CardTitle>
+                  <CardDescription className="text-muted-foreground">
+                    {video.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    <div className="flex items-center">
+                      <Clock className="h-4 w-4 mr-1" />
+                      {video.duration}
+                    </div>
+                    <div>{video.views} views</div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="w-full sm:w-auto bg-transparent"
+            >
+              <Link href="/videos">View All Videos</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-card border-t border-border py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="col-span-1 sm:col-span-2">
+              <div className="flex items-center space-x-2 mb-4">
+                <Code className="h-8 w-8 text-primary" />
+                <span className="text-xl font-bold text-card-foreground">
+                  CodeLearn
+                </span>
+              </div>
+              <p className="text-muted-foreground mb-4 max-w-md leading-relaxed">
+                Empowering Khmer and global students with free, high-quality
+                coding education. Learn at your own pace and build the skills
+                for tomorrow.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-foreground hover:text-primary"
+                >
+                  Facebook
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-foreground hover:text-primary"
+                >
+                  YouTube
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-foreground hover:text-primary"
+                >
+                  GitHub
+                </Button>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-card-foreground mb-4">
+                Courses
+              </h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>
+                  <Link
+                    href="/courses/html-css"
+                    className="hover:text-primary transition-colors text-sm"
+                  >
+                    HTML & CSS
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/courses/javascript"
+                    className="hover:text-primary transition-colors text-sm"
+                  >
+                    JavaScript
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/courses/python"
+                    className="hover:text-primary transition-colors text-sm"
+                  >
+                    Python
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/courses/java"
+                    className="hover:text-primary transition-colors text-sm"
+                  >
+                    Java
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/courses/cpp"
+                    className="hover:text-primary transition-colors text-sm"
+                  >
+                    C++
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-card-foreground mb-4">
+                Support
+              </h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>
+                  <Link
+                    href="/help"
+                    className="hover:text-primary transition-colors text-sm"
+                  >
+                    Help Center
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/community"
+                    className="hover:text-primary transition-colors text-sm"
+                  >
+                    Community
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="hover:text-primary transition-colors text-sm"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/feedback"
+                    className="hover:text-primary transition-colors text-sm"
+                  >
+                    Feedback
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+            <p className="text-sm">
+              &copy; 2025 CodeLearn. All rights reserved. Made with ❤️ for
+              students worldwide.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
