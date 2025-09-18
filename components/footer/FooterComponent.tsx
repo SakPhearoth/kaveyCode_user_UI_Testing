@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Code } from "lucide-react"; // make sure you have this icon imported
 
 export default function FooterComponent() {
   return (
@@ -11,9 +11,15 @@ export default function FooterComponent() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <Code className="h-8 w-8 text-primary" />
+              <Image
+                src="/images/kavey-code-logo.png"
+                alt="Kavey Code Logo"
+                width={40}
+                height={40}
+                className="rounded"
+              />
               <span className="text-xl font-bold text-card-foreground">
-                CodeLearn
+                កវី <span className="text-primary">កូដ</span>
               </span>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
@@ -105,7 +111,7 @@ export default function FooterComponent() {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2025 CodeLearn. All rights reserved. Made with ❤️ for students worldwide.</p>
+          <p>&copy; 2025 KaveyCode. All rights reserved. Made with ❤️ for students worldwide.</p>
         </div>
       </div>
     </footer>

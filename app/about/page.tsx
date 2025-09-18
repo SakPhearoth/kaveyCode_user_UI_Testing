@@ -1,5 +1,6 @@
 "use client";
 
+import TeamSection from "@/components/TeamSection";
 import Image from "next/image";
 
 export default function AboutPage() {
@@ -76,69 +77,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl font-bold mb-12">ក្រុម KaveyCode</h2>
-
-        {/* Mentors */}
-        <div className="flex justify-center gap-12 mb-12">
-          {/* Mentor 1 */}
-          <div className="flex flex-col items-center">
-            <Image
-              src="images/Mr.Chhaya.png" // replace with your local image
-              alt="Mentor 1"
-              width={120}
-              height={120}
-              className="rounded-full object-cover"
-            />
-            <p className="mt-2 font-semibold">John Doe</p>
-            <p className="text-sm text-muted-foreground">Lead Mentor</p>
-          </div>
-
-          {/* Mentor 2 */}
-          <div className="flex flex-col items-center">
-            <Image
-              src="/images/Mr.Davann.png"
-              alt="Mentor 2"
-              width={120}
-              height={120}
-              className="rounded-full object-cover"
-            />
-            <p className="mt-2 font-semibold">Jane Smith</p>
-            <p className="text-sm text-muted-foreground">Technical Mentor</p>
-          </div>
-
-          {/* Mentor 3 */}
-          <div className="flex flex-col items-center">
-            <Image
-              src="/images/Mr.Sokpheng.png"
-              alt="Mentor 3"
-              width={120}
-              height={120}
-              className="rounded-full object-cover"
-            />
-            <p className="mt-2 font-semibold">Alex Kim</p>
-            <p className="text-sm text-muted-foreground">Design Mentor</p>
-          </div>
-        </div>
-
-        {/* Team Members */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-          {/* Repeat for 10 team members */}
-          {Array.from({ length: 10 }).map((_, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <Image
-                src={`/team-member${index + 1}.jpg`} // replace with your local images
-                alt={`Team Member ${index + 1}`}
-                width={80}
-                height={80}
-                className="rounded-full object-cover"
-              />
-              <p className="mt-2 font-semibold">Member {index + 1}</p>
-              <p className="text-sm text-muted-foreground">Role</p>
-            </div>
-          ))}
-        </div>
-      </section>
+       <TeamSection />
     </div>
   );
 }
