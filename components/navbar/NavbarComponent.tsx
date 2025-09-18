@@ -24,7 +24,7 @@ export default function NavbarComponent() {
           <div className="flex items-center space-x-2">
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/kavey-code-logo.png"
+                src="images/kavey-code-logo.png"
                 alt="Kavey Code Logo"
                 width={80}
                 height={80}

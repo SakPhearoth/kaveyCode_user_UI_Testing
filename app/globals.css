@@ -125,6 +125,47 @@
   --sidebar-ring: oklch(0.65 0.15 258.338 / 0.4); /* Bright sidebar ring */
 }
 
+/* Import KantumruyPro fonts (Khmer) */
+@font-face {
+  font-family: 'KantumruyPro';
+  src: url('/fonts/KantumruyPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KantumruyPro';
+  src: url('/fonts/KantumruyPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KantumruyPro';
+  src: url('/fonts/KantumruyPro-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Add more variants as needed */
+
+/* Define font classes */
+.font-khmer {
+  font-family: 'KantumruyPro', sans-serif;
+}
+
+.font-english {
+  font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+/* Default body font - will use Consolas for English, fallback to Khmer */
+body {
+  font-family: 'Consolas', 'KantumruyPro', monospace, sans-serif;
+}
+
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

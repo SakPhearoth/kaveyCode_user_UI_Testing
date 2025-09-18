@@ -35,7 +35,7 @@ export default function CoursesPage() {
       description:
         "Learn the building blocks of web development with hands-on projects and real-world examples. Master semantic HTML, responsive CSS, and modern layout techniques.",
       tags: ["HTML", "CSS", "Beginner"],
-      image: "/html-css-coding-tutorial.jpg",
+      image: "images/html-css-coding-tutorial.jpg",
       duration: "8 hours",
       students: "2.5k",
       rating: 4.9,
@@ -48,7 +48,7 @@ export default function CoursesPage() {
       description:
         "Master JavaScript from basics to advanced concepts including ES6+, DOM manipulation, async programming, and modern JavaScript frameworks.",
       tags: ["JavaScript", "ES6", "Intermediate"],
-      image: "/javascript-programming-code.jpg",
+      image: "images/javascript-programming-code.jpg",
       duration: "12 hours",
       students: "1.8k",
       rating: 4.8,
@@ -61,7 +61,7 @@ export default function CoursesPage() {
       description:
         "Complete Python course covering syntax, data structures, OOP, and popular libraries like NumPy, Pandas, and Django for web development.",
       tags: ["Python", "Data Science", "Beginner"],
-      image: "/python-programming-snake-code.jpg",
+      image: "images/python-programming-snake-code.jpg",
       duration: "15 hours",
       students: "3.2k",
       rating: 4.9,
@@ -74,7 +74,7 @@ export default function CoursesPage() {
       description:
         "Learn Java programming with object-oriented principles, data structures, algorithms, and enterprise application development.",
       tags: ["Java", "OOP", "Intermediate"],
-      image: "/java-programming-coffee-cup-code.jpg",
+      image: "images/java-programming-coffee-cup-code.jpg",
       duration: "18 hours",
       students: "1.5k",
       rating: 4.7,
@@ -87,7 +87,7 @@ export default function CoursesPage() {
       description:
         "Master C++ programming with memory management, pointers, system-level programming, and performance optimization techniques.",
       tags: ["C++", "Systems", "Advanced"],
-      image: "/c---programming-code-syntax.jpg",
+      image: "images/c---programming-code-syntax.jpg",
       duration: "20 hours",
       students: "900",
       rating: 4.8,
@@ -100,7 +100,7 @@ export default function CoursesPage() {
       description:
         "Complete full-stack development course combining frontend technologies (React, Vue) with backend frameworks (Node.js, Express).",
       tags: ["Full Stack", "React", "Node.js"],
-      image: "/full-stack-web-development.png",
+      image: "images/full-stack-web-development.png",
       duration: "25 hours",
       students: "2.1k",
       rating: 4.9,
@@ -113,7 +113,7 @@ export default function CoursesPage() {
       description:
         "Deep dive into advanced CSS techniques including Grid, Flexbox, animations, transitions, and modern CSS frameworks.",
       tags: ["CSS", "Animations", "Advanced"],
-      image: "/advanced-css-animations-code.jpg",
+      image: "images/advanced-css-animations-code.jpg",
       duration: "10 hours",
       students: "1.2k",
       rating: 4.6,
@@ -126,7 +126,7 @@ export default function CoursesPage() {
       description:
         "Learn data science and artificial intelligence with Python, including machine learning, data visualization, and neural networks.",
       tags: ["Python", "AI", "Data Science"],
-      image: "/python-data-science-artificial-intelligence.jpg",
+      image: "images/python-data-science-artificial-intelligence.jpg",
       duration: "22 hours",
       students: "1.8k",
       rating: 4.8,
@@ -139,7 +139,7 @@ export default function CoursesPage() {
       description:
         "Compare and learn popular JavaScript frameworks including React, Vue, Angular, and Svelte with practical projects.",
       tags: ["JavaScript", "React", "Vue", "Angular"],
-      image: "/javascript-frameworks-react-vue-angular.jpg",
+      image: "images/javascript-frameworks-react-vue-angular.jpg",
       duration: "16 hours",
       students: "1.4k",
       rating: 4.7,
@@ -152,7 +152,7 @@ export default function CoursesPage() {
       description:
         "Build enterprise-grade applications with Java Spring Boot, including REST APIs, database integration, and security.",
       tags: ["Java", "Spring Boot", "Backend"],
-      image: "/java-spring-boot-development.jpg",
+      image: "images/java-spring-boot-development.jpg",
       duration: "24 hours",
       students: "1.1k",
       rating: 4.8,
@@ -165,7 +165,7 @@ export default function CoursesPage() {
       description:
         "Create games using C++ with popular game engines, covering graphics programming, physics, and game architecture.",
       tags: ["C++", "Game Dev", "Graphics"],
-      image: "/c---game-development-programming.jpg",
+      image: "images/c---game-development-programming.jpg",
       duration: "28 hours",
       students: "750",
       rating: 4.9,
@@ -178,7 +178,7 @@ export default function CoursesPage() {
       description:
         "Master responsive web design with HTML5, CSS3, mobile-first approach, and progressive web app development.",
       tags: ["HTML", "CSS", "Responsive"],
-      image: "/responsive-web-design-mobile-first.jpg",
+      image: "images/responsive-web-design-mobile-first.jpg",
       duration: "14 hours",
       students: "2.0k",
       rating: 4.7,
@@ -207,8 +207,6 @@ export default function CoursesPage() {
 
   return (
     <div className="min-h-screen bg-background">
-
-
       {/* Header Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/20">
         <div className="max-w-7xl mx-auto text-center">

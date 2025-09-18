@@ -6,18 +6,27 @@ export default function AboutPage() {
   return (
     <div className="space-y-24">
       {/* Hero Section */}
-      <section className="relative h-[500px] w-full">
-        <Image
-          src="/hero-background.jpg" // replace with your local hero image
-          alt="About Hero"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center p-4">
-          <h1 className="text-white text-4xl md:text-6xl font-bold mb-4 md:mb-6">
+      {/* Hero Section with aspect ratio control */}
+      <section className="relative w-full">
+        {/* Container with aspect ratio */}
+        <div className="relative w-full aspect-[16/7] md:aspect-[16/6]">
+          <Image
+            src="/images/About-HeroSection-Background.png"
+            alt="About Hero"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        {/* Content positioned over the image */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+          <h1 className="text-white text-3xl md:text-5xl font-bold mb-4 md:mb-6">
             អំពី KaveyCode
           </h1>
-          <p className="text-white text-lg md:text-xl max-w-2xl">
+          <p className="text-white text-base md:text-xl max-w-2xl mx-auto px-4">
             សូមស្វាមន៏មកកាន់ពិភពនៃភាសាកូដជាមួយ kaveyCode ដែលជាកន្លែង
             សម្រាប់សិស្សានុសិស្សកម្ពុជាទទួលបានចំណេះដឹងយ៉ាងមានប្រសិទ្ធភាព។
           </p>

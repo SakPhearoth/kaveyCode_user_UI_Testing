@@ -21,7 +21,7 @@ export default function HomePage() {
       description:
         "Learn the building blocks of web development with hands-on projects and real-world examples.",
       tags: ["HTML", "CSS", "Beginner"],
-      image: "/html-css-coding-tutorial.jpg",
+      image: "images/html-css-coding-tutorial.jpg",
       duration: "8 hours",
       students: "2.5k",
       rating: 4.9,
@@ -32,7 +32,7 @@ export default function HomePage() {
       description:
         "Master JavaScript from basics to advanced concepts including ES6+, DOM manipulation, and async programming.",
       tags: ["JavaScript", "ES6", "Intermediate"],
-      image: "/javascript-programming-code.jpg",
+      image: "images/javascript-programming-code.jpg",
       duration: "12 hours",
       students: "1.8k",
       rating: 4.8,
@@ -43,7 +43,7 @@ export default function HomePage() {
       description:
         "Complete Python course covering syntax, data structures, OOP, and popular libraries like NumPy and Pandas.",
       tags: ["Python", "Data Science", "Beginner"],
-      image: "/python-programming-snake-code.jpg",
+      image: "images/python-programming-snake-code.jpg",
       duration: "15 hours",
       students: "3.2k",
       rating: 4.9,
@@ -54,7 +54,7 @@ export default function HomePage() {
       description:
         "Learn Java programming with object-oriented principles, data structures, and application development.",
       tags: ["Java", "OOP", "Intermediate"],
-      image: "/java-programming-coffee-cup-code.jpg",
+      image: "images/java-programming-coffee-cup-code.jpg",
       duration: "18 hours",
       students: "1.5k",
       rating: 4.7,
@@ -65,7 +65,7 @@ export default function HomePage() {
       description:
         "Master C++ programming with memory management, pointers, and system-level programming concepts.",
       tags: ["C++", "Systems", "Advanced"],
-      image: "/c---programming-code-syntax.jpg",
+      image: "images/c---programming-code-syntax.jpg",
       duration: "20 hours",
       students: "900",
       rating: 4.8,
@@ -76,7 +76,7 @@ export default function HomePage() {
       description:
         "Complete full-stack development course combining frontend and backend technologies.",
       tags: ["Full Stack", "React", "Node.js"],
-      image: "/full-stack-web-development.png",
+      image: "images/full-stack-web-development.png",
       duration: "25 hours",
       students: "2.1k",
       rating: 4.9,
@@ -88,7 +88,7 @@ export default function HomePage() {
       id: 1,
       title: "HTML in 30 Minutes - Complete Beginner Tutorial",
       description: "Quick start guide to HTML with practical examples",
-      thumbnail: "/html-tutorial-video-thumbnail.jpg",
+      thumbnail: "images/html-tutorial-video-thumbnail.jpg",
       duration: "30:45",
       views: "125k",
     },
@@ -96,7 +96,7 @@ export default function HomePage() {
       id: 2,
       title: "CSS Flexbox Explained - Visual Guide",
       description: "Master CSS Flexbox with visual examples and real projects",
-      thumbnail: "/css-flexbox-tutorial-video.jpg",
+      thumbnail: "images/css-flexbox-tutorial-video.jpg",
       duration: "45:20",
       views: "89k",
     },
@@ -104,7 +104,7 @@ export default function HomePage() {
       id: 3,
       title: "JavaScript Functions Deep Dive",
       description: "Everything you need to know about JavaScript functions",
-      thumbnail: "/javascript-functions-tutorial.jpg",
+      thumbnail: "images/javascript-functions-tutorial.jpg",
       duration: "52:15",
       views: "156k",
     },
@@ -179,7 +179,7 @@ export default function HomePage() {
               <div className="relative w-[360px] sm:w-[420px] lg:w-[480px]">
                 <div className="rounded-xl overflow-hidden transform-gpu transition-transform duration-500 hover:scale-102">
                   <Image
-                    src="/coding-homepage.png"
+                    src="images/coding-homepage.png"
                     alt="Kavey Code banner"
                     width={960}
                     height={540}
@@ -191,37 +191,37 @@ export default function HomePage() {
                 {/* floating tech icons */}
                 <div className="absolute inset-0 pointer-events-none">
                   <img
-                    src="/icons-html.png"
+                    src="images/icons-html.png"
                     alt=""
                     className="absolute w-12 h-12 top-4 left-2 shadow-md rounded-md animate-float-1"
                     aria-hidden
                   />
                   <img
-                    src="/icons-css.png"
+                    src="images/icons-css.png"
                     alt=""
                     className="absolute w-12 h-12 top-10 right-6 shadow-md rounded-md animate-float-2"
                     aria-hidden
                   />
                   <img
-                    src="/icons-javascrip.png"
+                    src="images/icons-javascrip.png"
                     alt=""
                     className="absolute w-14 h-14 bottom-12 left-8 shadow-lg rounded-md animate-float-3"
                     aria-hidden
                   />
                   <img
-                    src="/icons-react.png"
+                    src="images/icons-react.png"
                     alt=""
                     className="absolute w-12 h-12 -bottom-6 right-12 shadow-md rounded-md animate-float-1"
                     aria-hidden
                   />
                   <img
-                    src="/icons-next.js.png"
+                    src="images/icons-next.js.png"
                     alt=""
                     className="absolute w-10 h-10 top-3 right-20 shadow-md rounded-md animate-float-2"
                     aria-hidden
                   />
                   <img
-                    src="/icons-tailwind-css.png"
+                    src="images/icons-tailwind-css.png"
                     alt=""
                     className="absolute w-10 h-10 left-1/2 -translate-x-1/2 top-0 shadow-md rounded-md animate-float-3"
                     aria-hidden
@@ -346,7 +346,7 @@ export default function HomePage() {
               >
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
-                    src={video.thumbnail || "/placeholder.svg"}
+                    src={video.thumbnail || "images/placeholder.svg"}
                     alt={video.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />

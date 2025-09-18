@@ -11,7 +11,7 @@ import NavbarComponent from "@/components/navbar/NavbarComponent";
 import FooterComponent from "@/components/footer/FooterComponent";
 
 export const metadata: Metadata = {
-  title: "CodeLearn - Free Coding Education",
+  title: "កវី កូដ KaveyCode",
   description:
     "Learn HTML, CSS, JavaScript, Python, Java, C++ and more with our free coding courses and video tutorials.",
   generator: "v0.app",
