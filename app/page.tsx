@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -112,117 +112,21 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <Link href="/" className="flex items-center space-x-2">
-                <Image
-                  src="/kavey-code-logo.png"
-                  alt="Kavey Code Logo"
-                  width={80}
-                  height={80}
-                  className="rounded"
-                />
-                <span className="text-xl font-bold text-foreground">
-                  កវី <span className="text-primary">កូដ</span>
-                </span>
-              </Link>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <Link
-                href="/"
-                className="relative inline-flex items-center text-foreground font-medium transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 active:scale-95"
-              >
-                Home
-                <span className="absolute left-0 -bottom-1 h-0.5 bg-primary rounded-full w-0 group-hover:w-full group-active:w-full transition-all duration-300" />
-              </Link>
-
-              <Link
-                href="/courses"
-                className="relative inline-flex items-center text-muted-foreground transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 active:scale-95"
-              >
-                Courses
-                <span className="absolute left-0 -bottom-1 h-0.5 bg-primary rounded-full w-0 group-hover:w-full group-active:w-full transition-all duration-300" />
-              </Link>
-
-              <Link
-                href="/videos"
-                className="relative inline-flex items-center text-muted-foreground transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 active:scale-95"
-              >
-                Videos
-                <span className="absolute left-0 -bottom-1 h-0.5 bg-primary rounded-full w-0 group-hover:w-full group-active:w-full transition-all duration-300" />
-              </Link>
-
-              <Link
-                href="/about"
-                className="relative inline-flex items-center text-muted-foreground transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 active:scale-95"
-              >
-                About
-                <span className="absolute left-0 -bottom-1 h-0.5 bg-primary rounded-full w-0 group-hover:w-full group-active:w-full transition-all duration-300" />
-              </Link>
-            </div>
-
-            <label htmlFor="Search">
-              <div className="relative">
-                <input
-                  type="text"
-                  id="Search"
-                  className="mt-0.5 w-full rounded pe-10 shadow-sm sm:text-sm"
-                />
-
-                <span className="absolute inset-y-0 right-2 grid w-8 place-content-center">
-                  <button
-                    type="button"
-                    aria-label="Submit"
-                    className="rounded-full p-1.5 text-gray-700 transition-colors hover:bg-gray-100"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="size-4"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                      />
-                    </svg>
-                  </button>
-                </span>
-              </div>
-            </label>
-
-            <div className="hidden md:flex items-center space-x-3">
-              <ThemeToggle />
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground transform transition-transform duration-150 active:scale-95">
-                Get Started
-              </Button>
-            </div>
-
-            <MobileNav currentPage="/" />
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
-             <section className="relative overflow-hidden py-16 lg:py-24">
+      <section className="relative overflow-hidden py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left: copy */}
             <div className="lg:col-span-6 text-center lg:text-left">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-4 leading-tight">
-                សូមស្វាគមន៍មកកាន់ <span className="text-primary">Kavey Code</span>
+                សូមស្វាគមន៍មកកាន់{" "}
+                <span className="text-primary">Kavey Code</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-                វគ្គសិក្សារបស់ Kavey Code ត្រូវបានរចនាឡើងដើម្បីអោយអ្នករៀន Coding បានយ៉ាងងាយស្រួល
-                និងឥតគិតថ្លៃ។ រៀនពី HTML, CSS, JavaScript និង Frameworks ដូចជា React និង Next.js
-                តាមជំហានៗ ជាមួយគំរូក៏ដូចជា Project ជាក់ស្តែង។
+                វគ្គសិក្សារបស់ Kavey Code ត្រូវបានរចនាឡើងដើម្បីអោយអ្នករៀន Coding
+                បានយ៉ាងងាយស្រួល និងឥតគិតថ្លៃ។ រៀនពី HTML, CSS, JavaScript និង
+                Frameworks ដូចជា React និង Next.js តាមជំហានៗ ជាមួយគំរូក៏ដូចជា
+                Project ជាក់ស្តែង។
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
@@ -248,23 +152,34 @@ export default function HomePage() {
 
               <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start opacity-90">
                 <span className="text-xs text-muted-foreground">Popular:</span>
-                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">HTML</span>
-                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">CSS</span>
-                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">JavaScript</span>
-                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">React</span>
+                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">
+                  HTML
+                </span>
+                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">
+                  CSS
+                </span>
+                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">
+                  JavaScript
+                </span>
+                <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">
+                  React
+                </span>
               </div>
             </div>
 
             {/* Right: hero visuals */}
             <div className="lg:col-span-6 flex items-center justify-center relative">
               {/* animated gradient blob behind images */}
-              <div aria-hidden className="absolute -right-8 top-0 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-primary/15 via-primary/7 to-transparent blur-3xl animate-blob opacity-90 pointer-events-none" />
+              <div
+                aria-hidden
+                className="absolute -right-8 top-0 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-primary/15 via-primary/7 to-transparent blur-3xl animate-blob opacity-90 pointer-events-none"
+              />
 
               {/* main banner image */}
               <div className="relative w-[360px] sm:w-[420px] lg:w-[480px]">
-                <div className="rounded-2xl overflow-hidden shadow-2xl transform-gpu transition-transform duration-500 hover:scale-102">
+                <div className="rounded-xl overflow-hidden transform-gpu transition-transform duration-500 hover:scale-102">
                   <Image
-                    src="/banner.png"
+                    src="/coding-homepage.png"
                     alt="Kavey Code banner"
                     width={960}
                     height={540}
@@ -275,12 +190,42 @@ export default function HomePage() {
 
                 {/* floating tech icons */}
                 <div className="absolute inset-0 pointer-events-none">
-                  <img src="/icons-html.png" alt="" className="absolute w-12 h-12 top-4 left-2 shadow-md rounded-md animate-float-1" aria-hidden />
-                  <img src="/icons-css.png" alt="" className="absolute w-12 h-12 top-10 right-6 shadow-md rounded-md animate-float-2" aria-hidden />
-                  <img src="/icons-javascrip.png" alt="" className="absolute w-14 h-14 bottom-12 left-8 shadow-lg rounded-md animate-float-3" aria-hidden />
-                  <img src="/icons-react.png" alt="" className="absolute w-12 h-12 -bottom-6 right-12 shadow-md rounded-md animate-float-1" aria-hidden />
-                  <img src="/icons-next.js.png" alt="" className="absolute w-10 h-10 top-3 right-20 shadow-md rounded-md animate-float-2" aria-hidden />
-                  <img src="/icons-tailwind-css.png" alt="" className="absolute w-10 h-10 left-1/2 -translate-x-1/2 top-0 shadow-md rounded-md animate-float-3" aria-hidden />
+                  <img
+                    src="/icons-html.png"
+                    alt=""
+                    className="absolute w-12 h-12 top-4 left-2 shadow-md rounded-md animate-float-1"
+                    aria-hidden
+                  />
+                  <img
+                    src="/icons-css.png"
+                    alt=""
+                    className="absolute w-12 h-12 top-10 right-6 shadow-md rounded-md animate-float-2"
+                    aria-hidden
+                  />
+                  <img
+                    src="/icons-javascrip.png"
+                    alt=""
+                    className="absolute w-14 h-14 bottom-12 left-8 shadow-lg rounded-md animate-float-3"
+                    aria-hidden
+                  />
+                  <img
+                    src="/icons-react.png"
+                    alt=""
+                    className="absolute w-12 h-12 -bottom-6 right-12 shadow-md rounded-md animate-float-1"
+                    aria-hidden
+                  />
+                  <img
+                    src="/icons-next.js.png"
+                    alt=""
+                    className="absolute w-10 h-10 top-3 right-20 shadow-md rounded-md animate-float-2"
+                    aria-hidden
+                  />
+                  <img
+                    src="/icons-tailwind-css.png"
+                    alt=""
+                    className="absolute w-10 h-10 left-1/2 -translate-x-1/2 top-0 shadow-md rounded-md animate-float-3"
+                    aria-hidden
+                  />
                 </div>
               </div>
             </div>
@@ -288,8 +233,16 @@ export default function HomePage() {
         </div>
 
         {/* subtle bottom wave / divider */}
-        <svg className="absolute inset-x-0 bottom-0 w-full -mb-1" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden>
-          <path d="M0,40 C240,120 480,0 720,40 C960,80 1200,20 1440,60 L1440 120 L0 120 Z" fill="rgba(99,102,241,0.04)" />
+        <svg
+          className="absolute inset-x-0 bottom-0 w-full -mb-1"
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          aria-hidden
+        >
+          <path
+            d="M0,40 C240,120 480,0 720,40 C960,80 1200,20 1440,60 L1440 120 L0 120 Z"
+            fill="rgba(99,102,241,0.04)"
+          />
         </svg>
       </section>
 
@@ -439,145 +392,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-card border-t border-border py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="col-span-1 sm:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <Code className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold text-card-foreground">
-                  CodeLearn
-                </span>
-              </div>
-              <p className="text-muted-foreground mb-4 max-w-md leading-relaxed">
-                Empowering Khmer and global students with free, high-quality
-                coding education. Learn at your own pace and build the skills
-                for tomorrow.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-muted-foreground hover:text-primary"
-                >
-                  Facebook
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-muted-foreground hover:text-primary"
-                >
-                  YouTube
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-muted-foreground hover:text-primary"
-                >
-                  GitHub
-                </Button>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-card-foreground mb-4">
-                Courses
-              </h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>
-                  <Link
-                    href="/courses/html-css"
-                    className="hover:text-primary transition-colors text-sm"
-                  >
-                    HTML & CSS
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/courses/javascript"
-                    className="hover:text-primary transition-colors text-sm"
-                  >
-                    JavaScript
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/courses/python"
-                    className="hover:text-primary transition-colors text-sm"
-                  >
-                    Python
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/courses/java"
-                    className="hover:text-primary transition-colors text-sm"
-                  >
-                    Java
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/courses/cpp"
-                    className="hover:text-primary transition-colors text-sm"
-                  >
-                    C++
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-card-foreground mb-4">
-                Support
-              </h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>
-                  <Link
-                    href="/help"
-                    className="hover:text-primary transition-colors text-sm"
-                  >
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/community"
-                    className="hover:text-primary transition-colors text-sm"
-                  >
-                    Community
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-primary transition-colors text-sm"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/feedback"
-                    className="hover:text-primary transition-colors text-sm"
-                  >
-                    Feedback
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-            <p className="text-sm">
-              &copy; 2025 CodeLearn. All rights reserved. Made with ❤️ for
-              students worldwide.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
-
