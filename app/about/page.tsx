@@ -46,10 +46,10 @@ export default function AboutPage() {
         </div>
         <div className="md:w-1/2">
           <Image
-            src="/mission-image.jpg" // replace with your local image
+            src="images/our-mission.png"
             alt="Our Mission"
-            width={600}
-            height={400}
+            width={500}
+            height={300}
             className="rounded-lg"
           />
         </div>
@@ -77,7 +77,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-       <TeamSection />
+      <TeamSection />
     </div>
   );
 }
