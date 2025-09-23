@@ -7,11 +7,12 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Suspense } from "react";
 import "./globals.css";
 
+
 import NavbarComponent from "@/components/navbar/NavbarComponent";
 import FooterComponent from "@/components/footer/FooterComponent";
 
 export const metadata: Metadata = {
-  title: "កវី កូដ KaveyCode",
+  title: "កវីកូដ KaveyCode",
   description:
     "Learn HTML, CSS, JavaScript, Python, Java, C++ and more with our free coding courses and video tutorials.",
   generator: "v0.app",

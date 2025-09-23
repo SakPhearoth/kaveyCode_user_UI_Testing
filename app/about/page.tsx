@@ -28,7 +28,10 @@ export default function AboutPage() {
             អំពី KaveyCode
           </h1>
           <p className="text-white text-base md:text-xl max-w-2xl mx-auto px-4">
-            សូមស្វាមន៏មកកាន់ពិភពនៃភាសាកូដជាមួយ kaveyCode ដែលជាកន្លែង
+            {/* សូមស្វាមន៏មកកាន់ពិភពនៃភាសាកូដជាមួយ kaveyCode ដែលជាកន្លែង
+          សម្រាប់សិស្សានុសិស្សកម្ពុជាទទួលបានចំណេះដឹងយ៉ាងមានប្រសិទ្ធភាព។ */}
+            សូមស្វាគមន៍មកកាន់ពិភពនៃមេរៀនកូដជាមួយ KaveyCode ដែលជាកន្លែង
+            <br />
             សម្រាប់សិស្សានុសិស្សកម្ពុជាទទួលបានចំណេះដឹងយ៉ាងមានប្រសិទ្ធភាព។
           </p>
         </div>
@@ -37,7 +40,7 @@ export default function AboutPage() {
       {/* Section 1: Text Left, Image Right */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+          <h2 className="text-3xl font-bold mb-4">គោលដៅរបស់យើង</h2>
           <p className="text-muted-foreground">
             We aim to empower students with free, high-quality coding education.
             Our courses and tutorials help learners build real-world skills to
@@ -56,7 +59,7 @@ export default function AboutPage() {
       </section>
 
       {/* Section 2: Image Left, Text Right */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
+      {/* <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2">
           <Image
             src="/vision-image.jpg" // replace with your local image
@@ -74,7 +77,7 @@ export default function AboutPage() {
             dedicated to making this vision a reality.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* Team Section */}
       <TeamSection />

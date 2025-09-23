@@ -1,27 +1,49 @@
-"use client"
+"use client";
 
-import { useState, useMemo } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Code, PlayCircle, Clock, Search, Filter, Eye, ThumbsUp } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { MobileNav } from "@/components/mobile-nav"
+import { useState, useMemo } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { ThemeToggle } from "@/components/theme-toggle";
+import {
+  Code,
+  PlayCircle,
+  Clock,
+  Search,
+  Filter,
+  Eye,
+  ThumbsUp,
+} from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { MobileNav } from "@/components/mobile-nav";
+import VideoPlayer from "@/components/VideoPlayer";
 
 export default function VideosPage() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [selectedTopic, setSelectedTopic] = useState("all")
-  const [selectedVideo, setSelectedVideo] = useState<number | null>(null)
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTopic, setSelectedTopic] = useState("all");
+  const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
 
   const allVideos = [
     {
       id: 1,
       title: "HTML in 30 Minutes - Complete Beginner Tutorial",
-      description: "Quick start guide to HTML with practical examples and hands-on coding exercises.",
+      description:
+        "Quick start guide to HTML with practical examples and hands-on coding exercises.",
       thumbnail: "images/html-tutorial-video-thumbnail.jpg",
       duration: "30:45",
       views: "125k",
@@ -35,7 +57,8 @@ export default function VideosPage() {
     {
       id: 2,
       title: "CSS Flexbox Explained - Visual Guide",
-      description: "Master CSS Flexbox with visual examples and real projects that you can follow along.",
+      description:
+        "Master CSS Flexbox with visual examples and real projects that you can follow along.",
       thumbnail: "images/css-flexbox-tutorial-video.jpg",
       duration: "45:20",
       views: "89k",
@@ -49,7 +72,8 @@ export default function VideosPage() {
     {
       id: 3,
       title: "JavaScript Functions Deep Dive",
-      description: "Everything you need to know about JavaScript functions, from basics to advanced concepts.",
+      description:
+        "Everything you need to know about JavaScript functions, from basics to advanced concepts.",
       thumbnail: "images/javascript-functions-tutorial.jpg",
       duration: "52:15",
       views: "156k",
@@ -63,7 +87,8 @@ export default function VideosPage() {
     {
       id: 4,
       title: "Python Variables and Data Types",
-      description: "Learn Python fundamentals including variables, data types, and basic operations.",
+      description:
+        "Learn Python fundamentals including variables, data types, and basic operations.",
       thumbnail: "images/python-variables-data-types-tutorial.jpg",
       duration: "38:30",
       views: "203k",
@@ -77,7 +102,8 @@ export default function VideosPage() {
     {
       id: 5,
       title: "Java Object-Oriented Programming",
-      description: "Master OOP concepts in Java with classes, objects, inheritance, and polymorphism.",
+      description:
+        "Master OOP concepts in Java with classes, objects, inheritance, and polymorphism.",
       thumbnail: "images/java-oop-programming-tutorial.jpg",
       duration: "1:15:45",
       views: "94k",
@@ -91,7 +117,8 @@ export default function VideosPage() {
     {
       id: 6,
       title: "C++ Pointers and Memory Management",
-      description: "Deep dive into C++ pointers, memory allocation, and best practices for memory management.",
+      description:
+        "Deep dive into C++ pointers, memory allocation, and best practices for memory management.",
       thumbnail: "images/c---pointers-memory-management.jpg",
       duration: "1:02:20",
       views: "67k",
@@ -105,7 +132,8 @@ export default function VideosPage() {
     {
       id: 7,
       title: "Responsive Web Design with CSS Grid",
-      description: "Create responsive layouts using CSS Grid with practical examples and modern techniques.",
+      description:
+        "Create responsive layouts using CSS Grid with practical examples and modern techniques.",
       thumbnail: "images/css-grid-responsive-design.jpg",
       duration: "41:15",
       views: "112k",
@@ -119,7 +147,8 @@ export default function VideosPage() {
     {
       id: 8,
       title: "JavaScript ES6+ Features Explained",
-      description: "Modern JavaScript features including arrow functions, destructuring, and async/await.",
+      description:
+        "Modern JavaScript features including arrow functions, destructuring, and async/await.",
       thumbnail: "images/javascript-es6-modern-features.jpg",
       duration: "58:40",
       views: "178k",
@@ -133,7 +162,8 @@ export default function VideosPage() {
     {
       id: 9,
       title: "Python Web Development with Django",
-      description: "Build web applications with Python Django framework from scratch to deployment.",
+      description:
+        "Build web applications with Python Django framework from scratch to deployment.",
       thumbnail: "images/python-django-web-development.jpg",
       duration: "1:28:30",
       views: "145k",
@@ -147,7 +177,8 @@ export default function VideosPage() {
     {
       id: 10,
       title: "Java Spring Boot REST API",
-      description: "Create RESTful APIs with Java Spring Boot including database integration and testing.",
+      description:
+        "Create RESTful APIs with Java Spring Boot including database integration and testing.",
       thumbnail: "images/java-spring-boot-rest-api.jpg",
       duration: "1:12:15",
       views: "87k",
@@ -161,7 +192,8 @@ export default function VideosPage() {
     {
       id: 11,
       title: "HTML5 Semantic Elements Guide",
-      description: "Learn HTML5 semantic elements for better accessibility and SEO optimization.",
+      description:
+        "Learn HTML5 semantic elements for better accessibility and SEO optimization.",
       thumbnail: "images/html5-semantic-elements-guide.jpg",
       duration: "25:50",
       views: "98k",
@@ -175,7 +207,8 @@ export default function VideosPage() {
     {
       id: 12,
       title: "C++ STL Containers and Algorithms",
-      description: "Master C++ Standard Template Library with containers, iterators, and algorithms.",
+      description:
+        "Master C++ Standard Template Library with containers, iterators, and algorithms.",
       thumbnail: "images/c---stl-containers-algorithms.jpg",
       duration: "1:05:35",
       views: "52k",
@@ -186,28 +219,32 @@ export default function VideosPage() {
       embedId: "Aa2iFAUlVao",
       uploadDate: "2024-11-15",
     },
-  ]
+  ];
 
-  const topics = ["all", "HTML", "CSS", "JavaScript", "Python", "Java", "C++"]
+  const topics = ["all", "HTML", "CSS", "JavaScript", "Python", "Java", "C++"];
 
   const filteredVideos = useMemo(() => {
     return allVideos.filter((video) => {
       const matchesSearch =
         video.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         video.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        video.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+        video.tags.some((tag) =>
+          tag.toLowerCase().includes(searchQuery.toLowerCase())
+        );
 
-      const matchesTopic = selectedTopic === "all" || video.topic === selectedTopic
+      const matchesTopic =
+        selectedTopic === "all" || video.topic === selectedTopic;
 
-      return matchesSearch && matchesTopic
-    })
-  }, [searchQuery, selectedTopic])
+      return matchesSearch && matchesTopic;
+    });
+  }, [searchQuery, selectedTopic]);
 
-  const featuredVideo = selectedVideo ? allVideos.find((v) => v.id === selectedVideo) : allVideos[0]
+  const featuredVideo = selectedVideo
+    ? allVideos.find((v) => v.id === selectedVideo)
+    : allVideos[0];
 
   return (
     <div className="min-h-screen bg-background">
-  
       {/* Header Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/20">
         <div className="max-w-7xl mx-auto text-center">
@@ -215,8 +252,8 @@ export default function VideosPage() {
             Video <span className="text-primary">Tutorials</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
-            Learn programming through engaging video tutorials. Watch, practice, and master coding concepts with our
-            comprehensive video library.
+            Learn programming through engaging video tutorials. Watch, practice,
+            and master coding concepts with our comprehensive video library.
           </p>
         </div>
       </section>
@@ -227,24 +264,26 @@ export default function VideosPage() {
           <div className="max-w-6xl mx-auto">
             <div className="bg-card rounded-xl shadow-lg overflow-hidden border border-border">
               <div className="aspect-video bg-black rounded-t-xl overflow-hidden">
-                <iframe
-                  src={`https://www.youtube.com/embed/${featuredVideo.embedId}`}
-                  title={featuredVideo.title}
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+                <VideoPlayer src={`https://www.youtube.com/embed/${featuredVideo.embedId}`} type="youtube" />
               </div>
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-3">
                   {featuredVideo.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary">
+                    <Badge
+                      key={tag}
+                      variant="secondary"
+                      className="bg-primary/10 text-primary"
+                    >
                       {tag}
                     </Badge>
                   ))}
                 </div>
-                <h2 className="text-2xl font-bold text-card-foreground mb-2">{featuredVideo.title}</h2>
-                <p className="text-muted-foreground mb-4">{featuredVideo.description}</p>
+                <h2 className="text-2xl font-bold text-card-foreground mb-2">
+                  {featuredVideo.title}
+                </h2>
+                <p className="text-muted-foreground mb-4">
+                  {featuredVideo.description}
+                </p>
                 <div className="flex items-center gap-6 text-sm text-muted-foreground">
                   <div className="flex items-center">
                     <Eye className="h-4 w-4 mr-1" />
@@ -282,7 +321,9 @@ export default function VideosPage() {
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
                 <Filter className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">Filter by:</span>
+                <span className="text-sm text-muted-foreground">
+                  Filter by:
+                </span>
               </div>
               <Select value={selectedTopic} onValueChange={setSelectedTopic}>
                 <SelectTrigger className="w-40 bg-background border-border">
@@ -326,14 +367,17 @@ export default function VideosPage() {
           {filteredVideos.length === 0 ? (
             <div className="text-center py-16">
               <PlayCircle className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-foreground mb-2">No videos found</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-2">
+                No videos found
+              </h3>
               <p className="text-muted-foreground mb-4">
-                Try adjusting your search terms or filters to find what you're looking for.
+                Try adjusting your search terms or filters to find what you're
+                looking for.
               </p>
               <Button
                 onClick={() => {
-                  setSearchQuery("")
-                  setSelectedTopic("all")
+                  setSearchQuery("");
+                  setSelectedTopic("all");
                 }}
               >
                 Clear Filters
@@ -362,7 +406,10 @@ export default function VideosPage() {
                       {video.duration}
                     </div>
                     <div className="absolute top-2 left-2">
-                      <Badge variant="secondary" className="bg-background/90 text-foreground text-xs">
+                      <Badge
+                        variant="secondary"
+                        className="bg-background/90 text-foreground text-xs"
+                      >
                         {video.level}
                       </Badge>
                     </div>
@@ -370,7 +417,11 @@ export default function VideosPage() {
                   <CardHeader className="pb-2">
                     <div className="flex flex-wrap gap-1 mb-2">
                       {video.tags.slice(0, 2).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary text-xs">
+                        <Badge
+                          key={tag}
+                          variant="secondary"
+                          className="bg-primary/10 text-primary text-xs"
+                        >
                           {tag}
                         </Badge>
                       ))}
@@ -404,12 +455,19 @@ export default function VideosPage() {
       {/* Call to Action */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Want More Structured Learning?</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            Want More Structured Learning?
+          </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Check out our comprehensive courses that combine videos with hands-on exercises and projects.
+            Check out our comprehensive courses that combine videos with
+            hands-on exercises and projects.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              asChild
+            >
               <Link href="/courses">
                 <PlayCircle className="mr-2 h-5 w-5" />
                 Browse Courses
@@ -422,5 +480,5 @@ export default function VideosPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

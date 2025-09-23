@@ -4,16 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "../theme-toggle";
-import { usePathname } from "next/navigation"; 
+import { usePathname } from "next/navigation";
 
 export default function NavbarComponent() {
-  const pathname = usePathname(); 
+  const pathname = usePathname();
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/courses", label: "Courses" },
-    { href: "/videos", label: "Videos" },
-    { href: "/about", label: "About" },
+    { href: "/", label: "ទំព័រដើម" },
+    { href: "/courses", label: "មេរៀន" },
+    { href: "/videos", label: "វីដេអូ" },
+    { href: "/about", label: "អំពីកវីកូដ" },
   ];
 
   return (
@@ -31,7 +31,7 @@ export default function NavbarComponent() {
                 className="rounded"
               />
               <span className="text-xl font-bold text-foreground">
-                កវី <span className="text-primary">កូដ</span>
+                កវី<span className="text-primary">កូដ</span>
               </span>
             </Link>
           </div>
@@ -47,9 +47,7 @@ export default function NavbarComponent() {
                   key={link.href}
                   href={link.href}
                   className={`transition-colors hover:text-primary ${
-                    isActive
-                      ? "text-primary font-semibold"
-                      : "text-foreground"
+                    isActive ? "text-primary font-semibold" : "text-foreground"
                   }`}
                 >
                   {link.label}
@@ -62,7 +60,10 @@ export default function NavbarComponent() {
           <div className="hidden md:flex items-center space-x-3">
             <ThemeToggle />
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Get Started
+              <Link href="/login">ចូលគណនី</Link>
+              {/* <Link href="/login">Login</Link> */}
+              <span>/</span>
+              <Link href="/signup">ចុះឈ្មោះ</Link>
             </Button>
           </div>
         </div>

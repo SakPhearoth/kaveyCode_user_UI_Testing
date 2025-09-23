@@ -251,7 +251,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Featured Courses
+              មេរៀន
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
               Start your coding journey with our most popular and comprehensive
@@ -320,7 +320,7 @@ export default function HomePage() {
               asChild
               className="w-full sm:w-auto bg-transparent"
             >
-              <Link href="/courses">View All Courses</Link>
+              <Link href="/courses">ចូលមើលមេរៀនទាំងអស់</Link>
             </Button>
           </div>
         </div>
@@ -387,7 +387,7 @@ export default function HomePage() {
               asChild
               className="w-full sm:w-auto bg-transparent"
             >
-              <Link href="/videos">View All Videos</Link>
+              <Link href="/videos">ចូលមើលវីដេអូមេរៀនទាំងអស់</Link>
             </Button>
           </div>
         </div>
