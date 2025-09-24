@@ -211,12 +211,11 @@ export default function CoursesPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/20">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
-            All Programming <span className="text-primary">Courses</span>
+            មេរៀនទាំងអស់
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
-            Explore our comprehensive collection of programming courses. From
-            beginner-friendly tutorials to advanced topics, find the perfect
-            course to advance your coding skills.
+            ស្វែងយល់និងរៀនពីវគ្គសិក្សាកូដគ្រប់កម្រិត
+            ចាប់ពីមូលដ្ឋានដល់កម្រិតខ្ពស់។
           </p>
         </div>
       </section>
@@ -228,7 +227,7 @@ export default function CoursesPage() {
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Search courses..."
+                placeholder="ស្វែងរកមេរៀន..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 bg-background border-border"
@@ -366,31 +365,6 @@ export default function CoursesPage() {
               ))}
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-4">
-            Ready to Start Learning?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Join thousands of students who are already advancing their coding
-            skills with our free courses.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            >
-              <BookOpen className="mr-2 h-5 w-5" />
-              Browse All Courses
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link href="/videos">Watch Video Tutorials</Link>
-            </Button>
-          </div>
         </div>
       </section>
     </div>

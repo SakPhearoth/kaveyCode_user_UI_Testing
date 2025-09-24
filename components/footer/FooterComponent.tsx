@@ -23,9 +23,8 @@ export default function FooterComponent() {
               </span>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
-              Empowering Khmer and global students with free, high-quality
-              coding education. Learn at your own pace and build the skills for
-              tomorrow.
+              ផ្តល់ឱកាសឱ្យនិស្សិតកម្ពុជា សិក្សាកូដឥតគិតថ្លៃ មានគុណភាពខ្ពស់
+              និងអភិវឌ្ឍជំនាញសម្រាប់អនាគត។
             </p>
             <div className="flex space-x-4">
               <Button
@@ -140,7 +139,7 @@ export default function FooterComponent() {
         <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
           <p>
             &copy; 2025 KaveyCode. All rights reserved. Made with ❤️ for
-            students worldwide.
+            Cambodian students.
           </p>
         </div>
       </div>

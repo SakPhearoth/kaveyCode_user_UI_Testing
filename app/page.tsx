@@ -150,7 +150,7 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start opacity-90">
+              {/* <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start opacity-90">
                 <span className="text-xs text-muted-foreground">Popular:</span>
                 <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">
                   HTML
@@ -164,7 +164,7 @@ export default function HomePage() {
                 <span className="px-2 py-1 bg-card/60 rounded-md text-sm text-foreground">
                   React
                 </span>
-              </div>
+              </div> */}
             </div>
 
             {/* Right: hero visuals */}
@@ -251,11 +251,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
-              មេរៀន
+              មេរៀនដែលពេញនិយម
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Start your coding journey with our most popular and comprehensive
-              courses
+              ចាប់ផ្តើមការសិក្សាកូដរបស់អ្នកជាមួយមេរៀនដែលពេញនិយមរបស់យើង
             </p>
           </div>
 
@@ -388,6 +387,27 @@ export default function HomePage() {
               className="w-full sm:w-auto bg-transparent"
             >
               <Link href="/videos">ចូលមើលវីដេអូមេរៀនទាំងអស់</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            ចង់ទទួលព័ត៌មានថ្មីៗពីគេហទំព័រកវីកូដ?
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8">
+           សូមធ្វើការចុះឈ្មោះដើម្បីទទួលបានព័ត៌មាននិងវគ្គមេរៀនថ្មីៗពីកាវីកូដ។
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6"
+              asChild
+            >
+              <Link href="/register">ចុះឈ្មោះ</Link>
             </Button>
           </div>
         </div>

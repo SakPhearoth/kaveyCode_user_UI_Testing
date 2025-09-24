@@ -249,11 +249,11 @@ export default function VideosPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/20">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
-            Video <span className="text-primary">Tutorials</span>
+            វីដេអូមេរៀន
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
-            Learn programming through engaging video tutorials. Watch, practice,
-            and master coding concepts with our comprehensive video library.
+            {/* រៀនកម្មវិធីតាមរយៈវីដេអូមានការចូលរួម និងងាយយល់។ */}
+            រៀនតាមរយៈវីដេអូដើម្បីភាពងាយស្រួល និងយល់បន្ថែមួយកម្រិតទៀត។
           </p>
         </div>
       </section>
@@ -264,7 +264,10 @@ export default function VideosPage() {
           <div className="max-w-6xl mx-auto">
             <div className="bg-card rounded-xl shadow-lg overflow-hidden border border-border">
               <div className="aspect-video bg-black rounded-t-xl overflow-hidden">
-                <VideoPlayer src={`https://www.youtube.com/embed/${featuredVideo.embedId}`} type="youtube" />
+                <VideoPlayer
+                  src={`https://www.youtube.com/embed/${featuredVideo.embedId}`}
+                  type="youtube"
+                />
               </div>
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-3">
@@ -311,7 +314,7 @@ export default function VideosPage() {
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Search videos..."
+                placeholder="ស្វែងរកវីដេអូ..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 bg-background border-border"
@@ -453,7 +456,7 @@ export default function VideosPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      {/* <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-foreground mb-4">
             Want More Structured Learning?
@@ -478,7 +481,7 @@ export default function VideosPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

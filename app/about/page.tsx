@@ -25,11 +25,9 @@ export default function AboutPage() {
         {/* Content positioned over the image */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
           <h1 className="text-white text-3xl md:text-5xl font-bold mb-4 md:mb-6">
-            អំពី KaveyCode
+            អំពី កវីកូដ
           </h1>
           <p className="text-white text-base md:text-xl max-w-2xl mx-auto px-4">
-            {/* សូមស្វាមន៏មកកាន់ពិភពនៃភាសាកូដជាមួយ kaveyCode ដែលជាកន្លែង
-          សម្រាប់សិស្សានុសិស្សកម្ពុជាទទួលបានចំណេះដឹងយ៉ាងមានប្រសិទ្ធភាព។ */}
             សូមស្វាគមន៍មកកាន់ពិភពនៃមេរៀនកូដជាមួយ KaveyCode ដែលជាកន្លែង
             <br />
             សម្រាប់សិស្សានុសិស្សកម្ពុជាទទួលបានចំណេះដឹងយ៉ាងមានប្រសិទ្ធភាព។
@@ -42,9 +40,10 @@ export default function AboutPage() {
         <div className="md:w-1/2">
           <h2 className="text-3xl font-bold mb-4">គោលដៅរបស់យើង</h2>
           <p className="text-muted-foreground">
-            We aim to empower students with free, high-quality coding education.
-            Our courses and tutorials help learners build real-world skills to
-            succeed in technology careers.
+            យើងមានបំណងផ្តល់ឱ្យនិស្សិតនិងអ្នកសិក្សា
+            នូវការអប់រំផ្នែកកូដដែលមានគុណភាពខ្ពស់ និងឥតគិតថ្លៃ
+            ដើម្បីជួយពួកគេអភិវឌ្ឍជំនាញអនុវត្តន៍ពិតប្រាកដ
+            និងឈានទៅរកភាពជោគជ័យក្នុងអាជីពបច្ចេកវិទ្យា។
           </p>
         </div>
         <div className="md:w-1/2">
