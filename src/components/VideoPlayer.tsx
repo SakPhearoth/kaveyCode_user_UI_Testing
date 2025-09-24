@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Plyr from 'plyr';
 
 interface VideoPlayerProps {
   src: string; // YouTube URL or mp4 file
@@ -12,18 +11,20 @@ export default function VideoPlayer({ src, type = 'youtube' }: VideoPlayerProps)
   const videoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      // Initialize Plyr
-      const player = new Plyr(videoRef.current, {
-        ratio: '16:9',
-        // Customize controls here:
-        controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
-      });
+    let player: any;
+    // Dynamically import Plyr only on client
+    import('plyr').then((PlyrModule) => {
+      if (videoRef.current) {
+        player = new PlyrModule.default(videoRef.current, {
+          ratio: '16:9',
+          controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+        });
+      }
+    });
 
-      return () => {
-        player.destroy();
-      };
-    }
+    return () => {
+      if (player) player.destroy();
+    };
   }, []);
 
   return (

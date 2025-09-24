@@ -1,6 +1,6 @@
 "use client";
 
-import TeamSection from "@/components/TeamSection";
+import TeamSection from "@/src/components/TeamSection";
 import Image from "next/image";
 
 export default function AboutPage() {

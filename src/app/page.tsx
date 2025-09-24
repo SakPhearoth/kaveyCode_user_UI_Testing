@@ -1,15 +1,15 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { MobileNav } from "@/components/mobile-nav";
+} from "@/src/components/ui/card";
+import { Badge } from "@/src/components/ui/badge";
+import { ThemeToggle } from "@/src/components/theme-toggle";
+import { MobileNav } from "@/src/components/mobile-nav";
 import { PlayCircle, Code, BookOpen, Users, Star, Clock } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -398,7 +398,7 @@ export default function HomePage() {
             ចង់ទទួលព័ត៌មានថ្មីៗពីគេហទំព័រកវីកូដ?
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-           សូមធ្វើការចុះឈ្មោះដើម្បីទទួលបានព័ត៌មាននិងវគ្គមេរៀនថ្មីៗពីកាវីកូដ។
+            សូមធ្វើការចុះឈ្មោះដើម្បីទទួលបានព័ត៌មាននិងវគ្គមេរៀនថ្មីៗពីកាវីកូដ។
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

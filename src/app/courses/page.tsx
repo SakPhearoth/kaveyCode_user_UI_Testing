@@ -1,28 +1,28 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
+} from "@/src/components/ui/card";
+import { Badge } from "@/src/components/ui/badge";
+import { Input } from "@/src/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { ThemeToggle } from "@/components/theme-toggle";
+} from "@/src/components/ui/select";
+import { ThemeToggle } from "@/src/components/theme-toggle";
 import { Code, BookOpen, Users, Star, Search, Filter } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { MobileNav } from "@/components/mobile-nav";
+import { MobileNav } from "@/src/components/mobile-nav";
 
 export default function CoursesPage() {
   const [searchQuery, setSearchQuery] = useState("");
