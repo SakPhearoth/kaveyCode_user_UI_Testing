@@ -130,24 +130,26 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/95 text-primary-foreground px-6 sm:px-8 py-3 text-base sm:text-lg transform transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                  aria-label="Start learning now"
-                >
-                  <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  ចាប់ផ្ដើមរៀនឥឡូវនេះ
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/95 text-primary-foreground px-6 sm:px-8 py-3 text-base sm:text-lg transform transition-all duration-200 hover:-translate-y-0.5 active:scale-95 w-full sm:w-auto"
+                    aria-label="Start learning now"
+                  >
+                    <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    ចាប់ផ្ដើមរៀនឥឡូវនេះ
+                  </Button>
 
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
-                  aria-label="Watch intro video"
-                >
-                  <PlayCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  មើលវីដេអូណែនាំ
-                </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
+                    aria-label="Watch intro video"
+                  >
+                    <PlayCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    មើលវីដេអូណែនាំ
+                  </Button>
+                </div>
               </div>
 
               {/* <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start opacity-90">
@@ -330,10 +332,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Featured Video Tutorials
+              វីដេអូមេរៀនដែលពេញនិយម
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Quick and engaging video lessons to boost your coding skills
+              វីដេអូមេរៀនដែលមានភាពទាក់ទាញនិងងាយស្រួលយល់សម្រាប់អ្នក
             </p>
           </div>
 
@@ -398,7 +400,7 @@ export default function HomePage() {
             ចង់ទទួលព័ត៌មានថ្មីៗពីគេហទំព័រកវីកូដ?
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            សូមធ្វើការចុះឈ្មោះដើម្បីទទួលបានព័ត៌មាននិងវគ្គមេរៀនថ្មីៗពីកាវីកូដ។
+            សូមធ្វើការចុះឈ្មោះដើម្បីទទួលបានព័ត៌មាន​និងវគ្គមេរៀនថ្មីៗពីកាវីកូដ។
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
