@@ -253,7 +253,7 @@ export default function VideosPage() {
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
             {/* រៀនកម្មវិធីតាមរយៈវីដេអូមានការចូលរួម និងងាយយល់។ */}
-            រៀនតាមរយៈវីដេអូដើម្បីភាពងាយស្រួល និងយល់បន្ថែមមួយកម្រិតទៀត។
+            រៀនតាមរយៈវីដេអូដើម្បីភាពងាយស្រួល និងយល់បន្ថែមួយកម្រិតទៀត។
           </p>
         </div>
       </section>
