@@ -24,7 +24,7 @@ export default function FooterComponent() {
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
               ផ្តល់ឱកាសឱ្យនិស្សិតកម្ពុជា សិក្សាកូដឥតគិតថ្លៃ មានគុណភាពខ្ពស់
-              និងអភិវឌ្ឍជំនាញសម្រាប់អនាគត។
+              <br/>និងអភិវឌ្ឍជំនាញសម្រាប់អនាគត។
             </p>
             <div className="flex space-x-4">
               <Button

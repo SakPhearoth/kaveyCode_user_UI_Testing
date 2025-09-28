@@ -17,9 +17,8 @@ export default function HomePage() {
   const featuredCourses = [
     {
       id: 1,
-      title: "Complete HTML & CSS Fundamentals",
-      description:
-        "Learn the building blocks of web development with hands-on projects and real-world examples.",
+      title: "HTML & CSS កម្រិតដំបូង",
+      description: "មេរៀននេះសាកសមសម្រាប់អ្នកមានបំណងចង់ចាប់ផ្ដើមសរសេរគេហទំព័រ។",
       tags: ["HTML", "CSS", "Beginner"],
       image: "images/html-css-coding-tutorial.jpg",
       duration: "8 hours",
@@ -28,9 +27,9 @@ export default function HomePage() {
     },
     {
       id: 2,
-      title: "JavaScript Mastery Course",
+      title: "JavaScript Programming",
       description:
-        "Master JavaScript from basics to advanced concepts including ES6+, DOM manipulation, and async programming.",
+        "រៀន JavaScript ពីមូលដ្ឋានដល់កម្រិតខ្ពស់រួមមាន ES6+, DOM manipulation, និង async programming។",
       tags: ["JavaScript", "ES6", "Intermediate"],
       image: "images/javascript-programming-code.jpg",
       duration: "12 hours",
@@ -39,9 +38,9 @@ export default function HomePage() {
     },
     {
       id: 3,
-      title: "Python Programming Bootcamp",
+      title: "Python Programming",
       description:
-        "Complete Python course covering syntax, data structures, OOP, and popular libraries like NumPy and Pandas.",
+        "គ្របដណ្តប់លើ syntax, data structures, OOP និង Libraries ដូចជា NumPy និង Pandas។",
       tags: ["Python", "Data Science", "Beginner"],
       image: "images/python-programming-snake-code.jpg",
       duration: "15 hours",
@@ -50,9 +49,9 @@ export default function HomePage() {
     },
     {
       id: 4,
-      title: "Java Development Essentials",
+      title: "ស្វែងយល់ពី Java Programming",
       description:
-        "Learn Java programming with object-oriented principles, data structures, and application development.",
+        "រៀន Java ជាមួយគោលការណ៍ OOP, data structures និងការអភិវឌ្ឍកម្មវិធី។",
       tags: ["Java", "OOP", "Intermediate"],
       image: "images/java-programming-coffee-cup-code.jpg",
       duration: "18 hours",
@@ -61,10 +60,9 @@ export default function HomePage() {
     },
     {
       id: 5,
-      title: "C++ Programming Fundamentals",
-      description:
-        "Master C++ programming with memory management, pointers, and system-level programming concepts.",
-      tags: ["C++", "Systems", "Advanced"],
+      title: "មូលដ្ឋាន C++ Programming",
+      description: "ចាប់ផ្ដើមជាមួយកម្រិតដំបូងជាមួយ C++​ Programming។",
+      tags: ["C++", "Systems", "Beginner"],
       image: "images/c---programming-code-syntax.jpg",
       duration: "20 hours",
       students: "900",
@@ -72,9 +70,8 @@ export default function HomePage() {
     },
     {
       id: 6,
-      title: "Web Development Full Stack",
-      description:
-        "Complete full-stack development course combining frontend and backend technologies.",
+      title: "មេរៀន Full-Stack Web Development",
+      description: "រៀនពេញលេញសម្រាប់ Frontend និង Backend technologies។",
       tags: ["Full Stack", "React", "Node.js"],
       image: "images/full-stack-web-development.png",
       duration: "25 hours",
@@ -86,24 +83,24 @@ export default function HomePage() {
   const featuredVideos = [
     {
       id: 1,
-      title: "HTML in 30 Minutes - Complete Beginner Tutorial",
-      description: "Quick start guide to HTML with practical examples",
+      title: "រៀន HTML ក្នុងរយៈពេល 30 នាទី",
+      description: "ស្វែងយល់ពី HTML ក្នុងរយៈពេល 30 នាទី",
       thumbnail: "images/html-tutorial-video-thumbnail.jpg",
       duration: "30:45",
       views: "125k",
     },
     {
       id: 2,
-      title: "CSS Flexbox Explained - Visual Guide",
-      description: "Master CSS Flexbox with visual examples and real projects",
+      title: "ពន្យល់ពី CSS Flexbox",
+      description: "រៀនប្រើ CSS Flexbox ជាមួយឧទាហរណ៍ និងការអនុវត្តជាក់ស្តែង",
       thumbnail: "images/css-flexbox-tutorial-video.jpg",
       duration: "45:20",
       views: "89k",
     },
     {
       id: 3,
-      title: "JavaScript Functions Deep Dive",
-      description: "Everything you need to know about JavaScript functions",
+      title: "ស្វែងយល់អំពីមុខងារ JavaScript",
+      description: "អ្វីៗសំខាន់ដែលអ្នកត្រូវដឹងអំពីមុខងារ JavaScript",
       thumbnail: "images/javascript-functions-tutorial.jpg",
       duration: "52:15",
       views: "156k",
@@ -129,7 +126,7 @@ export default function HomePage() {
                 Project ជាក់ស្តែង។
               </p>
 
-             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
                   <Button
                     size="lg"

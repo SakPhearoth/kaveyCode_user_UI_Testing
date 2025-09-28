@@ -41,9 +41,9 @@ export default function VideosPage() {
   const allVideos = [
     {
       id: 1,
-      title: "HTML in 30 Minutes - Complete Beginner Tutorial",
+      title: "រៀន HTML ក្នុងរយៈពេល 30 នាទី",
       description:
-        "Quick start guide to HTML with practical examples and hands-on coding exercises.",
+        "ស្វែងយល់ពី HTML ក្នុងរយៈពេល 30 នាទី",
       thumbnail: "images/html-tutorial-video-thumbnail.jpg",
       duration: "30:45",
       views: "125k",
@@ -56,9 +56,8 @@ export default function VideosPage() {
     },
     {
       id: 2,
-      title: "CSS Flexbox Explained - Visual Guide",
-      description:
-        "Master CSS Flexbox with visual examples and real projects that you can follow along.",
+      title: "ពន្យល់ពី CSS Flexbox",
+      description: "រៀនប្រើ CSS Flexbox ជាមួយឧទាហរណ៍ និងការអនុវត្តជាក់ស្តែង",
       thumbnail: "images/css-flexbox-tutorial-video.jpg",
       duration: "45:20",
       views: "89k",
@@ -71,9 +70,8 @@ export default function VideosPage() {
     },
     {
       id: 3,
-      title: "JavaScript Functions Deep Dive",
-      description:
-        "Everything you need to know about JavaScript functions, from basics to advanced concepts.",
+       title: "ស្វែងយល់អំពីមុខងារ JavaScript",
+      description: "អ្វីៗសំខាន់ដែលអ្នកត្រូវដឹងអំពីមុខងារ JavaScript",
       thumbnail: "images/javascript-functions-tutorial.jpg",
       duration: "52:15",
       views: "156k",
