@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   description:
     "Learn HTML, CSS, JavaScript, Python, Java, C++ and more with our free coding courses and video tutorials.",
   generator: "v0.app",
+  icons: {
+    icon: "/images/kavey-code-logo.png",
+  }
 };
 
 export default function RootLayout({
