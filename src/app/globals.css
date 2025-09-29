@@ -1,0 +1,413 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import 'plyr/dist/plyr.css';
+
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Enhanced color system with better accessibility and semantic tokens */
+  --background: oklch(1 0 0); /* Pure white background */
+  --foreground: oklch(0.145 0 0); /* Rich black text */
+  --card: oklch(0.98 0 0); /* Subtle off-white card background */
+  --card-foreground: oklch(0.145 0 0); /* Black card text */
+  --popover: oklch(1 0 0); /* White popover */
+  --popover-foreground: oklch(0.145 0 0); /* Black popover text */
+
+  /* Primary blue color system */
+  --primary: oklch(0.578 0.148 258.338); /* Blue-500 primary */
+  --primary-foreground: oklch(1 0 0); /* White text on primary */
+  --primary-hover: oklch(0.528 0.148 258.338); /* Darker blue on hover */
+
+  /* Secondary color system */
+  --secondary: oklch(0.95 0 0); /* Light gray secondary */
+  --secondary-foreground: oklch(0.145 0 0); /* Black text on secondary */
+  --secondary-hover: oklch(0.92 0 0); /* Darker gray on hover */
+
+  /* Muted colors */
+  --muted: oklch(0.97 0 0); /* Light gray muted */
+  --muted-foreground: oklch(0.556 0 0); /* Medium gray muted text */
+
+  /* Accent colors */
+  --accent: oklch(0.95 0 0); /* Light accent */
+  --accent-foreground: oklch(0.145 0 0); /* Dark accent text */
+
+  /* Semantic colors with proper contrast */
+  --success: oklch(0.55 0.15 142); /* Green success */
+  --success-foreground: oklch(1 0 0); /* White text on success */
+  --warning: oklch(0.75 0.15 85); /* Orange warning */
+  --warning-foreground: oklch(0.145 0 0); /* Dark text on warning */
+  --info: oklch(0.65 0.12 220); /* Blue info */
+  --info-foreground: oklch(1 0 0); /* White text on info */
+  --destructive: oklch(0.577 0.245 27.325); /* Red destructive */
+  --destructive-foreground: oklch(1 0 0); /* White destructive text */
+
+  /* Border and input colors */
+  --border: oklch(0.9 0 0); /* Light gray border */
+  --input: oklch(1 0 0); /* White input background */
+  --ring: oklch(0.578 0.148 258.338 / 0.3); /* Blue focus ring */
+
+  /* Enhanced chart colors */
+  --chart-1: oklch(0.578 0.148 258.338); /* Primary blue */
+  --chart-2: oklch(0.55 0.15 142); /* Green */
+  --chart-3: oklch(0.75 0.15 85); /* Orange */
+  --chart-4: oklch(0.65 0.12 220); /* Light blue */
+  --chart-5: oklch(0.577 0.245 27.325); /* Red */
+
+  --radius: 0.5rem; /* 8px rounded corners */
+
+  /* Sidebar colors */
+  --sidebar: oklch(0.99 0 0); /* Very light sidebar */
+  --sidebar-foreground: oklch(0.145 0 0); /* Black sidebar text */
+  --sidebar-primary: oklch(0.578 0.148 258.338); /* Blue sidebar primary */
+  --sidebar-primary-foreground: oklch(1 0 0); /* White sidebar primary text */
+  --sidebar-accent: oklch(0.95 0 0); /* Light sidebar accent */
+  --sidebar-accent-foreground: oklch(0.145 0 0); /* Dark sidebar accent text */
+  --sidebar-border: oklch(0.9 0 0); /* Light sidebar border */
+  --sidebar-ring: oklch(0.578 0.148 258.338 / 0.3); /* Blue sidebar ring */
+}
+
+.dark {
+  /* Enhanced dark mode with better contrast and accessibility */
+  --background: oklch(0.11 0 0); /* Deeper dark background */
+  --foreground: oklch(0.98 0 0); /* Bright white text */
+  --card: oklch(0.15 0 0); /* Dark card background */
+  --card-foreground: oklch(0.98 0 0); /* Bright card text */
+  --popover: oklch(0.11 0 0); /* Dark popover */
+  --popover-foreground: oklch(0.98 0 0); /* Bright popover text */
+
+  /* Primary colors optimized for dark mode */
+  --primary: oklch(0.65 0.15 258.338); /* Brighter blue for dark mode */
+  --primary-foreground: oklch(0.11 0 0); /* Dark text on primary */
+  --primary-hover: oklch(0.7 0.15 258.338); /* Even brighter on hover */
+
+  /* Secondary colors for dark mode */
+  --secondary: oklch(0.2 0 0); /* Dark secondary */
+  --secondary-foreground: oklch(0.98 0 0); /* Bright secondary text */
+  --secondary-hover: oklch(0.25 0 0); /* Lighter on hover */
+
+  /* Muted colors for dark mode */
+  --muted: oklch(0.2 0 0); /* Dark muted */
+  --muted-foreground: oklch(0.7 0 0); /* Light gray muted text */
+
+  /* Accent colors for dark mode */
+  --accent: oklch(0.2 0 0); /* Dark accent */
+  --accent-foreground: oklch(0.98 0 0); /* Bright accent text */
+
+  /* Semantic colors optimized for dark mode */
+  --success: oklch(0.6 0.15 142); /* Brighter green for dark mode */
+  --success-foreground: oklch(0.11 0 0); /* Dark text on success */
+  --warning: oklch(0.8 0.15 85); /* Brighter orange for dark mode */
+  --warning-foreground: oklch(0.11 0 0); /* Dark text on warning */
+  --info: oklch(0.7 0.12 220); /* Brighter blue info for dark mode */
+  --info-foreground: oklch(0.11 0 0); /* Dark text on info */
+  --destructive: oklch(0.65 0.25 27.325); /* Brighter red for dark mode */
+  --destructive-foreground: oklch(0.11 0 0); /* Dark destructive text */
+
+  /* Border and input colors for dark mode */
+  --border: oklch(0.2 0 0); /* Dark border */
+  --input: oklch(0.15 0 0); /* Dark input background */
+  --ring: oklch(0.65 0.15 258.338 / 0.4); /* Brighter focus ring */
+
+  /* Chart colors optimized for dark mode */
+  --chart-1: oklch(0.65 0.15 258.338); /* Bright blue */
+  --chart-2: oklch(0.6 0.15 142); /* Bright green */
+  --chart-3: oklch(0.8 0.15 85); /* Bright orange */
+  --chart-4: oklch(0.7 0.12 220); /* Bright light blue */
+  --chart-5: oklch(0.65 0.25 27.325); /* Bright red */
+
+  /* Sidebar colors for dark mode */
+  --sidebar: oklch(0.15 0 0); /* Dark sidebar */
+  --sidebar-foreground: oklch(0.98 0 0); /* Bright sidebar text */
+  --sidebar-primary: oklch(0.65 0.15 258.338); /* Bright sidebar primary */
+  --sidebar-primary-foreground: oklch(0.11 0 0); /* Dark sidebar primary text */
+  --sidebar-accent: oklch(0.2 0 0); /* Dark sidebar accent */
+  --sidebar-accent-foreground: oklch(0.98 0 0); /* Bright sidebar accent text */
+  --sidebar-border: oklch(0.2 0 0); /* Dark sidebar border */
+  --sidebar-ring: oklch(0.65 0.15 258.338 / 0.4); /* Bright sidebar ring */
+}
+
+/* Import KantumruyPro fonts (Khmer) */
+@font-face {
+  font-family: 'KantumruyPro';
+  src: url('/fonts/KantumruyPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KantumruyPro';
+  src: url('/fonts/KantumruyPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KantumruyPro';
+  src: url('/fonts/KantumruyPro-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Add more variants as needed */
+
+/* Define font classes */
+.font-khmer {
+  font-family: 'KantumruyPro', sans-serif;
+}
+
+.font-english {
+  font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+/* Default body font - will use Consolas for English, fallback to Khmer */
+body {
+  font-family: 'Consolas', 'KantumruyPro', monospace, sans-serif;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Added smooth theme transitions and reduced motion support */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    body {
+      transition: none;
+    }
+  }
+
+  /* Enhanced focus styles for better accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Smooth transitions for interactive elements */
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    transition: all 0.2s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    button,
+    a,
+    input,
+    textarea,
+    select {
+      transition: none;
+    }
+  }
+
+  /* Added custom animations for theme toggle interactions */
+  @keyframes theme-ripple {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  @keyframes theme-bounce-in {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes theme-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 5px var(--primary);
+    }
+    50% {
+      box-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary);
+    }
+  }
+
+  /* Enhanced theme toggle button styles */
+  .theme-toggle-enhanced {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .theme-toggle-enhanced::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    opacity: 0;
+    z-index: 0;
+  }
+
+  .theme-toggle-enhanced:active::before {
+    width: 300px;
+    height: 300px;
+    opacity: 0.1;
+  }
+
+  .theme-toggle-enhanced > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Smooth theme transition for all elements */
+  * {
+    transition:
+      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      fill 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
+
+/* Added high contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: oklch(0.5 0 0);
+    --ring: oklch(0.3 0 0);
+  }
+
+  .dark {
+    --border: oklch(0.7 0 0);
+    --ring: oklch(0.8 0 0);
+  }
+}
+
+
+@keyframes blob {
+  0% { transform: translateY(0) scale(1); opacity: .9; }
+  50% { transform: translateY(-8px) scale(1.03); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: .9; }
+}
+.animate-blob { animation: blob 6s ease-in-out infinite; }
+
+/* float variations for icons */
+@keyframes float-1 { 0% { transform: translateY(0); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0); } }
+@keyframes float-2 { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+@keyframes float-3 { 0% { transform: translateY(0); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0); } }
+
+.animate-float-1 { animation: float-1 5s ease-in-out infinite; }
+.animate-float-2 { animation: float-2 6.5s ease-in-out infinite; }
+.animate-float-3 { animation: float-3 4.5s ease-in-out infinite; }
+
+/* small utility tweaks */
+.hover\:scale-102:hover { transform: scale(1.02); }
+```/* filepath: /Users/ppc/Downloads/coding-education-website/app/globals.css */
+/* ...existing code... */
+
+/* blob pulse */
+@keyframes blob {
+  0% { transform: translateY(0) scale(1); opacity: .9; }
+  50% { transform: translateY(-8px) scale(1.03); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: .9; }
+}
+.animate-blob { animation: blob 6s ease-in-out infinite; }
+
+/* float variations for icons */
+@keyframes float-1 { 0% { transform: translateY(0); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0); } }
+@keyframes float-2 { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+@keyframes float-3 { 0% { transform: translateY(0); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0); } }
+
+.animate-float-1 { animation: float-1 5s ease-in-out infinite; }
+.animate-float-2 { animation: float-2 6.5s ease-in-out infinite; }
+.animate-float-3 { animation: float-3 4.5s ease-in-out infinite; }
+
+/* small utility tweaks */
+.hover\:scale-102:hover { transform: scale(1.02); }
