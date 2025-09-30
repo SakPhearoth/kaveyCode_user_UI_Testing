@@ -394,10 +394,10 @@ export default function HomePage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-foreground mb-4">
-            ចង់ទទួលព័ត៌មានថ្មីៗពីគេហទំព័រកវីកូដ?
+            ចង់ទទួលព័ត៌មានថ្មីៗកវីកូដ?
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            សូមធ្វើការចុះឈ្មោះដើម្បីទទួលបានព័ត៌មាននិងវគ្គមេរៀនថ្មីៗពីកាវីកូដ។
+            សូមធ្វើការចុះឈ្មោះដើម្បីទទួលបានព័ត៌មាននិងមេរៀនថ្មីៗពីកាវីកូដ😊
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

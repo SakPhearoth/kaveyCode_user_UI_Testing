@@ -50,6 +50,7 @@
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
     "next": "14.2.16",
+    "next-auth": "^4.24.11",
     "next-themes": "latest",
     "plyr": "^3.8.3",
     "react": "^18",
@@ -69,6 +70,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
+    "@types/next-auth": "^3.13.0",
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
