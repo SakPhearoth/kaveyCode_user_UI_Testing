@@ -332,7 +332,7 @@ export default function HomePage() {
               វីដេអូមេរៀនដែលពេញនិយម
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-              វីដេអូមេរៀនដែលមានភាពទាក់ទាញនិងងាយស្រួលយល់សម្រាប់អ្នក
+              ចាប់ផ្តើមការសិក្សាកូដរបស់អ្នកជាមួយវីដេអូមេរៀនដែលពេញនិយមរបស់យើង
             </p>
           </div>
 

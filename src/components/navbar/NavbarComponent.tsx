@@ -1,37 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/src/components/ui/button";
 import { ThemeToggle } from "../theme-toggle";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-// import { useSession } from "next-auth/react";
-
-// Simple modal component
-function Modal({ isOpen, onClose, children }: any) {
-  if (!isOpen) return null;
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="bg-background rounded-lg p-6 w-11/12 max-w-md relative">
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 text-foreground hover:text-primary"
-        >
-          <X size={24} />
-        </button>
-        {children}
-      </div>
-    </div>
-  );
-}
+import { useState } from "react";
+import { Menu, X, User } from "lucide-react";
 
 export default function NavbarComponent() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  // const { data: session } = useSession();
 
   const links = [
     { href: "/", label: "ទំព័រដើម" },
@@ -40,27 +19,30 @@ export default function NavbarComponent() {
     { href: "/about", label: "អំពីកវីកូដ" },
   ];
 
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  // Keycloak login page URL (replace with your realm & client)
+  const keycloakLoginUrl = `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/auth?client_id=${process.env.NEXT_PUBLIC_KEYCLOAK_CLIENT}&response_type=code&redirect_uri=${process.env.NEXT_PUBLIC_KEYCLOAK_REDIRECT_URI}`;
+
   return (
-    <nav className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+    <nav className="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image
-                src="/images/kavey-code-logo.png"
-                alt="Kavey Code Logo"
-                width={80}
-                height={80}
-                className="rounded"
-              />
-              <span className="text-xl font-bold text-foreground">
-                កវី<span className="text-primary">កូដ</span>
-              </span>
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center space-x-2">
+            <Image
+              src="/images/kavey-code-logo.png"
+              alt="Kavey Code Logo"
+              width={80}
+              height={80}
+              className="rounded"
+            />
+            <span className="text-xl font-bold">
+              កវី<span className="text-primary">កូដ</span>
+            </span>
+          </Link>
 
-          {/* Desktop links */}
+          {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => {
               const isActive =
@@ -80,45 +62,33 @@ export default function NavbarComponent() {
             })}
           </div>
 
-          {/* Desktop right side */}
-          {/* <div className="hidden md:flex items-center space-x-3">
-            <ThemeToggle />
-
-            {!session ? (
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                onClick={() => setIsAuthModalOpen(true)}
-              >
-                ចូលគណនី / ចុះឈ្មោះ
-              </Button>
-            ) : (
-              <Button
-                asChild
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              >
-                <Link href="/profile">គណនីរបស់ខ្ញុំ</Link>
-              </Button>
-            )}
-          </div> */}
-
-          {/* Desktop right side */}
+          {/* Right Side */}
           <div className="hidden md:flex items-center space-x-3">
             <ThemeToggle />
+
+            {/* 🔑 Redirect directly to Keycloak */}
             <Button
-              asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() => (window.location.href = keycloakLoginUrl)}
             >
-              <Link href="/profile">ទៅកាន់គណនី</Link>
+              ចូលគណនី / ចុះឈ្មោះ
             </Button>
+
+            {/* 👤 Profile Icon */}
+            <Link href="/profile">
+              <Button variant="outline" size="icon">
+                <User className="w-5 h-5" />
+              </Button>
+            </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu toggle */}
           <div className="flex md:hidden items-center space-x-2">
             <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={toggleMobileMenu}
               className="text-foreground"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -126,7 +96,7 @@ export default function NavbarComponent() {
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden border-t border-border">
             <div className="py-4 space-y-4">
@@ -138,7 +108,7 @@ export default function NavbarComponent() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`block py-2 px-4 transition-colors hover:text-primary ${
+                    className={`block py-2 px-4 hover:text-primary ${
                       isActive
                         ? "text-primary font-semibold"
                         : "text-foreground"
@@ -150,49 +120,20 @@ export default function NavbarComponent() {
                 );
               })}
 
-              {/* Mobile auth buttons */}
-              {/* <div className="flex flex-col space-y-3 pt-4 border-t border-border">
-                {!session ? (
-                  <>
-                    <Button
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                      onClick={() => setIsAuthModalOpen(true)}
-                    >
-                      ចូលគណនី
-                    </Button>
-                    <Button
-                      className="w-full border border-border"
-                      onClick={() => setIsAuthModalOpen(true)}
-                    >
-                      ចុះឈ្មោះ
-                    </Button>
-                  </>
-                ) : (
-                  <Button
-                    asChild
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                  >
-                    <Link
-                      href="/profile"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      គណនីរបស់ខ្ញុំ
-                    </Link>
-                  </Button>
-                )}
-              </div> */}
-
-              {/* Mobile auth buttons */}
+              {/* Mobile Auth Buttons */}
               <div className="flex flex-col space-y-3 pt-4 border-t border-border">
                 <Button
-                  asChild
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  onClick={() => (window.location.href = keycloakLoginUrl)}
                 >
+                  ចូលគណនី / ចុះឈ្មោះ
+                </Button>
+                <Button asChild variant="outline" className="w-full">
                   <Link
                     href="/profile"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    ទៅកាន់គណនី
+                    Profile
                   </Link>
                 </Button>
               </div>
@@ -200,40 +141,6 @@ export default function NavbarComponent() {
           </div>
         )}
       </div>
-
-      {/* Auth Modal */}
-      <Modal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)}>
-        <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-foreground">
-            ចូលគណនី / ចុះឈ្មោះ
-          </h2>
-          <div className="flex flex-col space-y-3">
-            <Button
-              asChild
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => setIsAuthModalOpen(false)}
-            >
-              <Link href="/login">ចូលគណនី</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="w-full"
-              onClick={() => setIsAuthModalOpen(false)}
-            >
-              <Link href="/signup">ចុះឈ្មោះ</Link>
-            </Button>
-            <Button
-              asChild
-              variant="ghost"
-              className="w-full text-sm text-foreground/70 hover:text-primary"
-              onClick={() => setIsAuthModalOpen(false)}
-            >
-              <Link href="/profile">ទៅកាន់ការកំណត់គណនី</Link>
-            </Button>
-          </div>
-        </div>
-      </Modal>
     </nav>
   );
 }
