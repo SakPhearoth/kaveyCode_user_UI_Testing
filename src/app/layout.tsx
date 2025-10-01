@@ -7,8 +7,12 @@ import { ThemeProvider } from "@/src/components/theme-provider";
 import { Suspense } from "react";
 import "./globals.css";
 
+import { SessionProvider } from "next-auth/react";
+
+
 import NavbarComponent from "@/src/components/navbar/NavbarComponent";
 import FooterComponent from "@/src/components/footer/FooterComponent";
+import { Providers } from "../components/Provider";
 
 export const metadata: Metadata = {
   title: "កវីកូដ KaveyCode",
@@ -22,25 +26,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <NavbarComponent />
-
-            <main>{children}</main>
-
-            <FooterComponent />
-          </ThemeProvider>
+          <Providers>{children}</Providers>
         </Suspense>
         <Analytics />
       </body>
