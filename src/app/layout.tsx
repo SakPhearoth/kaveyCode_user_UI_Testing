@@ -6,9 +6,11 @@ import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/src/components/theme-provider";
 import { Suspense } from "react";
 import "./globals.css";
+import Loading from "./loading";
 
 import NavbarComponent from "@/src/components/navbar/NavbarComponent";
 import FooterComponent from "@/src/components/footer/FooterComponent";
+import { StoreProviders } from "../redux/StoreProviders";
 
 export const metadata: Metadata = {
   title: "កវីកូដ KaveyCode",
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
   generator: "v0.app",
   icons: {
     icon: "/images/kavey-code-logo.png",
-  }
+  },
 };
 
 export default function RootLayout({
@@ -28,21 +30,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <Suspense>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <NavbarComponent />
-
-            <main>{children}</main>
-
-            <FooterComponent />
-          </ThemeProvider>
-        </Suspense>
-        <Analytics />
+        <StoreProviders>
+          <Suspense fallback={<Loading />}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <NavbarComponent />
+              <main>{children}</main>
+              <FooterComponent />
+            </ThemeProvider>
+          </Suspense>
+          <Analytics />
+        </StoreProviders>
       </body>
     </html>
   );
