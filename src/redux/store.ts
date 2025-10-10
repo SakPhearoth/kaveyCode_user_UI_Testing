@@ -7,7 +7,12 @@ const persistConfig = {
   storage,
 };
 
+// If you don't have specific slices yet, provide a placeholder reducer to
+// satisfy combineReducers and avoid runtime warnings from redux-persist.
+const placeholderReducer = (state = {}) => state;
+
 const rootReducer = combineReducers({
+  placeholder: placeholderReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
