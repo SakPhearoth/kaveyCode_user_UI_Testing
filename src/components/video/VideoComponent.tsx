@@ -76,10 +76,6 @@ export default function VideoComponent() {
     if (query != "") {
       setPageNum(0);
       setVideo(videos);
-      if(query == ""){
-        setVideo([])
-        console.log("IN")
-      }
     }
     console.log("data:", videos);
   }, [videosData, pageNum, search, searchParam]);
