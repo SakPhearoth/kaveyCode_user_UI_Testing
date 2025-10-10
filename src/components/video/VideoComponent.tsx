@@ -45,6 +45,8 @@ export default function VideoComponent() {
     title: search,
   });
 
+  const videos = (videosData?.data.content as VideoResponse[]) || [];
+
   function formatDurationClock(isoDuration: string) {
     const match = isoDuration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
 
@@ -68,15 +70,19 @@ export default function VideoComponent() {
     const val = e.target.value;
     setQuery(val);
     router.push(`/videos?title=${encodeURIComponent(val)}`);
+    setPageNum(0);
+    setVideo([]);
   };
 
   useEffect(() => {
-    const videos = (videosData?.data.content as VideoResponse[]) || [];
-    setVideo(video.concat(videos));
-    if (query != "") {
-      setPageNum(0);
-      setVideo(videos);
-    }
+    setVideo((prev) => {
+      const combined = [...prev, ...videos];
+      const unique = combined.filter(
+        (v, i, self) => i === self.findIndex((t) => t.id === v.id)
+      );
+      return unique;
+    });
+
     console.log("data:", videos);
   }, [videosData, pageNum, search, searchParam]);
 
@@ -175,9 +181,11 @@ export default function VideoComponent() {
               </Card>
             ))}
           </div>
-          <Button className="w-fit" onClick={() => setPageNum(pageNum + 1)}>
-            Load More
-          </Button>
+          {video.length != videosData?.data.totalElements && (
+            <Button className="w-fit" onClick={() => setPageNum(pageNum + 1)}>
+              Load More
+            </Button>
+          )}
         </div>
       </section>
     </div>
