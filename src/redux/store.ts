@@ -1,13 +1,19 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist"; 
+import { videoApi } from "./services/videoApi";
 
 const persistConfig = {
   key: "root",
   storage,
 };
 
+// If you don't have specific slices yet, provide a placeholder reducer to
+// satisfy combineReducers and avoid runtime warnings from redux-persist.
+const placeholderReducer = (state = {}) => state;
+
 const rootReducer = combineReducers({
+  [videoApi.reducerPath]: videoApi.reducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -16,6 +22,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }).concat(
+      videoApi.middleware
     ),
 });
 
