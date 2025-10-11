@@ -14,7 +14,7 @@ import VideoPlayer from "../VideoPlayer";
 
 export default function VideoCard({ video }: { video: VideoResponse[] }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-25">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
       {video.map((video) => (
         <Card
           key={video.id}
