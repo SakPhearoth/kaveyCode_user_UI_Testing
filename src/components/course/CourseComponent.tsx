@@ -2,52 +2,58 @@
 import React, { useEffect } from "react";
 import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
+  SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, Filter, PlayCircle } from "lucide-react";
-import { useGetAllVideosQuery } from "@/redux/services/videoApi";
-import { VideoResponse } from "@/types/VideoType";
-import VideoCard from "./VideoCard";
+import CourseCard from "./CourseCard";
 import {
-  SelectContent,
-  SelectGroup,
-  SelectLabel,
-} from "@radix-ui/react-select";
+  useGetAllCategoriesQuery,
+  useGetAllCoursesQuery,
+} from "@/redux/services/courseApi";
+import { CourseResponse } from "@/types/courseType";
+import { BookOpen, Filter, PlayCircle, Search } from "lucide-react";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/ui/input-group";
+} from "../ui/input-group";
 import CardLoading from "../CardLoading";
+import { CategoryResponse } from "@/types/categoryType";
 
-export default function VideoComponent() {
+export default function CourseComponent() {
   const [sortDirection, setSortDirection] = useState("DESC");
   const [sortBy, setSortBy] = useState("viewCount");
   const shortOption = ["Most View", "Less View", "Title A-Z", "Title Z-A"];
-
-  const [video, setVideo] = useState<VideoResponse[]>([]);
   const [pageNum, setPageNum] = useState(0);
+  const [courses, setCourses] = useState<CourseResponse[]>([]);
   const [query, setQuery] = useState("");
-  const { data: videosData, isLoading } = useGetAllVideosQuery({
+
+  const { data: categoriesResponse } = useGetAllCategoriesQuery();
+  const categoriesData = (categoriesResponse?.data as CategoryResponse[]) || [];
+  const [selectCategory, setSelectCategory] = useState("Show All");
+
+  const { data: coursesResponse, isLoading } = useGetAllCoursesQuery({
     pageNum: pageNum,
     title: query,
     direction: sortDirection,
     sortBy: sortBy,
+    categoryName: selectCategory,
   });
-
-  const videos = (videosData?.data.content as VideoResponse[]) || [];
+  const coursesData = (coursesResponse?.data.content as CourseResponse[]) || [];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPageNum(0);
-    setVideo([]);
+    setCourses([]);
     const val = e.target.value;
     setQuery(val);
-    if (videosData?.data.totalElements == 0) {
-      setVideo([]);
+    if (coursesResponse?.data.totalElements == 0) {
+      setCourses([]);
     }
   };
 
@@ -60,27 +66,30 @@ export default function VideoComponent() {
       setSortBy("viewCount");
     } else if (e === "Title A-Z") {
       setSortDirection("ASC");
-      setSortBy("videoTitle");
+      setSortBy("title");
     } else if (e === "Title Z-A") {
       setSortDirection("DESC");
-      setSortBy("videoTitle");
+      setSortBy("title");
     }
     setPageNum(0);
-    setVideo([]);
-    console.log(e);
+    setCourses([]);
   };
 
+  const handleFilter = (e: string) => {
+    setPageNum(0);
+    setCourses([]);
+    setSelectCategory(e)
+  }
+
   useEffect(() => {
-    setVideo((prev) => {
-      const combined = [...prev, ...videos];
+    setCourses((prev) => {
+      const combined = [...prev, ...coursesData];
       const unique = combined.filter(
         (v, i, self) => i === self.findIndex((t) => t.id === v.id)
       );
       return unique;
     });
-
-    console.log("data:", videos);
-  }, [videosData, pageNum, query, sortDirection, sortBy]);
+  }, [coursesResponse, pageNum, query, sortDirection, sortBy, selectCategory]);
 
   return (
     <div className="max-w-7xl px-4 sm:px-6 lg:px-8 py-12 bg-background flex flex-col gap-10 mx-auto">
@@ -88,11 +97,11 @@ export default function VideoComponent() {
       <section className="bg-gradient-to-br from-background to-muted/20">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
-            វីដេអូមេរៀន
+            មេរៀនទាំងអស់
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
-            {/* រៀនកម្មវិធីតាមរយៈវីដេអូមានការចូលរួម និងងាយយល់។ */}
-            រៀនតាមរយៈវីដេអូដើម្បីភាពងាយស្រួល និងយល់បន្ថែមួយកម្រិតទៀត។
+            ស្វែងយល់និងរៀនពីវគ្គសិក្សាកូដគ្រប់កម្រិត
+            ចាប់ពីមូលដ្ឋានដល់កម្រិតខ្ពស់។
           </p>
         </div>
       </section>
@@ -134,18 +143,36 @@ export default function VideoComponent() {
 
         <div className="mt-4 flex items-center justify-between">
           <p className="text-sm text-muted-foreground">
-            Showing {video.length} of {videosData?.data.totalElements} videos
+            Showing {courses.length} of {coursesResponse?.data.totalElements}{" "}
+            videos
           </p>
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-muted-foreground">Filter by:</span>
+            <Select onValueChange={(e) => handleFilter(e)}>
+              <SelectTrigger className="w-[220px]">
+                <SelectValue placeholder={"Show All"} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup defaultValue={"Show All"}>
+                  {categoriesData.map((category) => (
+                    <SelectItem key={category.id} value={category.name}>
+                      {category.name}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
       </section>
 
-      {/* Videos Grid */}
+      {/* Courses Grid */}
       <section className="flex flex-col items-center gap-10 w-full">
-        {videosData?.data.totalElements == 0 ? (
+        {coursesResponse?.data.totalElements == 0 ? (
           <div className="text-center py-16">
-            <PlayCircle className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+            <BookOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">
-              No videos found
+              No courses found
             </h3>
             <p className="text-muted-foreground mb-4">
               Try adjusting your search terms or filters to find what you're
@@ -153,12 +180,12 @@ export default function VideoComponent() {
             </p>
           </div>
         ) : (
-          <VideoCard video={video} />
+          <CourseCard courses={courses} />
         )}
 
         {isLoading && <CardLoading />}
 
-        {video.length < (videosData?.data.totalElements || 0) && (
+        {courses.length < (coursesResponse?.data.totalElements || 0) && (
           <Button className="w-fit" onClick={() => setPageNum(pageNum + 1)}>
             Load More
           </Button>
