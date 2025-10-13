@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "../theme-toggle";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -15,7 +15,6 @@ export default function NavbarComponent() {
   const { data: session } = useSession();
 
   const links = [
-    { href: "/", label: "ទំព័រដើម" },
     { href: "/courses", label: "មេរៀន" },
     { href: "/videos", label: "វីដេអូ" },
     { href: "/about", label: "អំពីកវីកូដ" },
@@ -36,20 +35,18 @@ export default function NavbarComponent() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* logo */}
-          <div className="flex items-center space-x-2">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image
-                src="images/kavey-code-logo.png"
-                alt="Kavey Code Logo"
-                width={80}
-                height={80}
-                className="rounded"
-              />
-              <span className="text-xl font-bold text-foreground">
-                កវី<span className="text-primary">កូដ</span>
-              </span>
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center space-x-2">
+            <Image
+              src="images/kavey-code-logo.png"
+              alt="Kavey Code Logo"
+              width={80}
+              height={80}
+              className="rounded"
+            />
+            <span className="text-xl font-bold text-foreground">
+              កវី<span className="text-primary">កូដ</span>
+            </span>
+          </Link>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center space-x-8">

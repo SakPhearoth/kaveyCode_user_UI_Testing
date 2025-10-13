@@ -1,15 +1,15 @@
 "use client";
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/src/components/ui/card";
-import { Badge } from "@/src/components/ui/badge";
-import { ThemeToggle } from "@/src/components/theme-toggle";
-import { MobileNav } from "@/src/components/mobile-nav";
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { MobileNav } from "@/components/mobile-nav";
 import { PlayCircle, Code, BookOpen, Users, Star, Clock } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";

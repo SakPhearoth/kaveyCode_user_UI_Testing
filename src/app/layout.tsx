@@ -3,16 +3,14 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
-import { ThemeProvider } from "@/src/components/theme-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Suspense } from "react";
 import "./globals.css";
+import Loading from "./loading";
 
-import { SessionProvider } from "next-auth/react";
-
-
-import NavbarComponent from "@/src/components/navbar/NavbarComponent";
-import FooterComponent from "@/src/components/footer/FooterComponent";
-import { Providers } from "../components/Provider";
+import NavbarComponent from "@/components/navbar/NavbarComponent";
+import FooterComponent from "@/components/footer/FooterComponent";
+import { StoreProviders } from "../redux/StoreProviders";
 
 export const metadata: Metadata = {
   title: "កវីកូដ KaveyCode",
@@ -21,7 +19,7 @@ export const metadata: Metadata = {
   generator: "v0.app",
   icons: {
     icon: "/images/kavey-code-logo.png",
-  }
+  },
 };
 
 export default function RootLayout({
@@ -32,10 +30,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <Suspense>
-          <Providers>{children}</Providers>
-        </Suspense>
-        <Analytics />
+        <StoreProviders>
+          <Suspense fallback={<Loading />}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <NavbarComponent />
+              <main>{children}</main>
+              <FooterComponent />
+            </ThemeProvider>
+          </Suspense>
+          <Analytics />
+        </StoreProviders>
       </body>
     </html>
   );
