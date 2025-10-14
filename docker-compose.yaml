@@ -1,0 +1,12 @@
+services: 
+  kavey-user: 
+    image: nextjs-kavey-user:v1
+    container_name: kavey-user-portal
+    ports: 
+      - "3003:3000"
+    labels: 
+      - "traefik.enable=true"
+      - "traefik.http.routers.reactjs.tls=true"
+      - "traefik.http.routers.reactjs.rule=Host(`earthdx.devnerd.store`)"
+      - "traefik.http.routers.reactjs.entrypoints=web,websecure"
+      - "traefik.http.routers.reactjs.tls.certresolver=letsencrypt"
