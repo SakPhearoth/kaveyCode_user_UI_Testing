@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist"; 
 import { videoApi } from "./services/videoApi";
+import { courseApi } from "./services/courseApi";
 
 const persistConfig = {
   key: "root",
@@ -13,7 +14,8 @@ const persistConfig = {
 const placeholderReducer = (state = {}) => state;
 
 const rootReducer = combineReducers({
-  [videoApi.reducerPath]: videoApi.reducer
+  [videoApi.reducerPath]: videoApi.reducer,
+  [courseApi.reducerPath]: courseApi.reducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -22,7 +24,8 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }).concat(
-      videoApi.middleware
+      videoApi.middleware,
+      courseApi.middleware
     ),
 });
 

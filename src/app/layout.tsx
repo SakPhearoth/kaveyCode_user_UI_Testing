@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
-import { ThemeProvider } from "@/src/components/theme-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Suspense } from "react";
 import "./globals.css";
 import Loading from "./loading";
 
-import NavbarComponent from "@/src/components/navbar/NavbarComponent";
-import FooterComponent from "@/src/components/footer/FooterComponent";
+import NavbarComponent from "@/components/navbar/NavbarComponent";
+import FooterComponent from "@/components/footer/FooterComponent";
 import { StoreProviders } from "../redux/StoreProviders";
 
 export const metadata: Metadata = {
